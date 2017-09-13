@@ -6,7 +6,13 @@
 class InnerProductLayer : public Layer
 {
 public:
+    InnerProductLayer(std::string name, std::string bottomBlobName, std::string topBlobName, int numOutputs);
+
     void setUp();
+    void forward();
+
+    int numInputs;
+    int numOutputs;
 };
 
 #endif //KAVA_INNERPRODUCTLAYER_H

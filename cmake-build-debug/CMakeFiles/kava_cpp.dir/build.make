@@ -57,9 +57,33 @@ include CMakeFiles/kava_cpp.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kava_cpp.dir/flags.make
 
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o: ../kava/layers/DataLayer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o -c /home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp
+
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp > CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.i
+
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp -o CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.s
+
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.requires:
+
+.PHONY : CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.requires
+
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.provides: CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.provides.build
+.PHONY : CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.provides
+
+CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o
+
+
 CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
 CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o: ../kava/layers/InnerProductLayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o -c /home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.cpp
 
 CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.i: cmake_force
@@ -83,7 +107,7 @@ CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o.provides.build: CMak
 
 CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
 CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o: ../kava/layers/Layer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o -c /home/nik/Desktop/kava-cpp/kava/layers/Layer.cpp
 
 CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.i: cmake_force
@@ -105,33 +129,33 @@ CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o.provides: CMakeFiles/kava_cpp.di
 CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o
 
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.o: ../kava/blob.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kava_cpp.dir/kava/blob.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/blob.cpp.o -c /home/nik/Desktop/kava-cpp/kava/blob.cpp
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o: ../kava/Blob.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o -c /home/nik/Desktop/kava-cpp/kava/Blob.cpp
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kava_cpp.dir/kava/blob.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nik/Desktop/kava-cpp/kava/blob.cpp > CMakeFiles/kava_cpp.dir/kava/blob.cpp.i
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kava_cpp.dir/kava/Blob.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nik/Desktop/kava-cpp/kava/Blob.cpp > CMakeFiles/kava_cpp.dir/kava/Blob.cpp.i
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kava_cpp.dir/kava/blob.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nik/Desktop/kava-cpp/kava/blob.cpp -o CMakeFiles/kava_cpp.dir/kava/blob.cpp.s
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kava_cpp.dir/kava/Blob.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nik/Desktop/kava-cpp/kava/Blob.cpp -o CMakeFiles/kava_cpp.dir/kava/Blob.cpp.s
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.requires:
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.requires:
 
-.PHONY : CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.requires
+.PHONY : CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.requires
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.provides: CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.requires
-	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.provides.build
-.PHONY : CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.provides
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.provides: CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.requires
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.provides.build
+.PHONY : CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.provides
 
-CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/kava/blob.cpp.o
+CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o
 
 
 CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
 CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o: ../kava/Kava.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o -c /home/nik/Desktop/kava-cpp/kava/Kava.cpp
 
 CMakeFiles/kava_cpp.dir/kava/Kava.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/
 
 CMakeFiles/kava_cpp.dir/main.cpp.o: CMakeFiles/kava_cpp.dir/flags.make
 CMakeFiles/kava_cpp.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kava_cpp.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kava_cpp.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kava_cpp.dir/main.cpp.o -c /home/nik/Desktop/kava-cpp/main.cpp
 
 CMakeFiles/kava_cpp.dir/main.cpp.i: cmake_force
@@ -179,23 +203,25 @@ CMakeFiles/kava_cpp.dir/main.cpp.o.provides.build: CMakeFiles/kava_cpp.dir/main.
 
 # Object files for target kava_cpp
 kava_cpp_OBJECTS = \
+"CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o" \
 "CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o" \
 "CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o" \
-"CMakeFiles/kava_cpp.dir/kava/blob.cpp.o" \
+"CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o" \
 "CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o" \
 "CMakeFiles/kava_cpp.dir/main.cpp.o"
 
 # External object files for target kava_cpp
 kava_cpp_EXTERNAL_OBJECTS =
 
+kava_cpp: CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o
 kava_cpp: CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o
 kava_cpp: CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o
-kava_cpp: CMakeFiles/kava_cpp.dir/kava/blob.cpp.o
+kava_cpp: CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o
 kava_cpp: CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o
 kava_cpp: CMakeFiles/kava_cpp.dir/main.cpp.o
 kava_cpp: CMakeFiles/kava_cpp.dir/build.make
 kava_cpp: CMakeFiles/kava_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable kava_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable kava_cpp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kava_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -203,9 +229,10 @@ CMakeFiles/kava_cpp.dir/build: kava_cpp
 
 .PHONY : CMakeFiles/kava_cpp.dir/build
 
+CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o.requires
 CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o.requires
 CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o.requires
-CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/blob.cpp.o.requires
+CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o.requires
 CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o.requires
 CMakeFiles/kava_cpp.dir/requires: CMakeFiles/kava_cpp.dir/main.cpp.o.requires
 

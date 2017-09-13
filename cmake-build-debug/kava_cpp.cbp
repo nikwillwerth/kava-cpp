@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Blob.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Blob.h">
+			<Option target="kava_cpp"/>
+		</Unit>
 		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Cholesky/LDLT.h">
 			<Option target="kava_cpp"/>
 		</Unit>
@@ -903,10 +909,10 @@
 		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Kava.h">
 			<Option target="kava_cpp"/>
 		</Unit>
-		<Unit filename="/home/nik/Desktop/kava-cpp/kava/blob.cpp">
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp">
 			<Option target="kava_cpp"/>
 		</Unit>
-		<Unit filename="/home/nik/Desktop/kava-cpp/kava/blob.h">
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.h">
 			<Option target="kava_cpp"/>
 		</Unit>
 		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.cpp">

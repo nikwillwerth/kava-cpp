@@ -3,6 +3,8 @@ project(kava_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_FLAGS "-O3")
+
 set(SOURCE_FILES
         kava/Eigen/src/Cholesky/LDLT.h
         kava/Eigen/src/Cholesky/LLT.h
@@ -275,12 +277,14 @@ set(SOURCE_FILES
         kava/Eigen/src/SVD/SVDBase.h
         kava/Eigen/src/SVD/UpperBidiagonalization.h
         kava/Eigen/src/UmfPackSupport/UmfPackSupport.h
+        kava/layers/DataLayer.cpp
+        kava/layers/DataLayer.h
         kava/layers/InnerProductLayer.cpp
         kava/layers/InnerProductLayer.h
         kava/layers/Layer.cpp
         kava/layers/Layer.h
-        kava/blob.cpp
-        kava/blob.h
+        kava/Blob.cpp
+        kava/Blob.h
         kava/Kava.cpp
         kava/Kava.h
         main.cpp)

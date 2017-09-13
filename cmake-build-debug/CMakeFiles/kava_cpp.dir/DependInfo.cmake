@@ -4,8 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/nik/Desktop/kava-cpp/kava/Blob.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o"
   "/home/nik/Desktop/kava-cpp/kava/Kava.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/Kava.cpp.o"
-  "/home/nik/Desktop/kava-cpp/kava/blob.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/blob.cpp.o"
+  "/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o"
   "/home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/layers/InnerProductLayer.cpp.o"
   "/home/nik/Desktop/kava-cpp/kava/layers/Layer.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/kava/layers/Layer.cpp.o"
   "/home/nik/Desktop/kava-cpp/main.cpp" "/home/nik/Desktop/kava-cpp/cmake-build-debug/CMakeFiles/kava_cpp.dir/main.cpp.o"

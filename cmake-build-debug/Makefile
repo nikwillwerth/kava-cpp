@@ -123,6 +123,33 @@ kava_cpp/fast:
 	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/build
 .PHONY : kava_cpp/fast
 
+kava/Blob.o: kava/Blob.cpp.o
+
+.PHONY : kava/Blob.o
+
+# target to build an object file
+kava/Blob.cpp.o:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/Blob.cpp.o
+.PHONY : kava/Blob.cpp.o
+
+kava/Blob.i: kava/Blob.cpp.i
+
+.PHONY : kava/Blob.i
+
+# target to preprocess a source file
+kava/Blob.cpp.i:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/Blob.cpp.i
+.PHONY : kava/Blob.cpp.i
+
+kava/Blob.s: kava/Blob.cpp.s
+
+.PHONY : kava/Blob.s
+
+# target to generate assembly for a file
+kava/Blob.cpp.s:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/Blob.cpp.s
+.PHONY : kava/Blob.cpp.s
+
 kava/Kava.o: kava/Kava.cpp.o
 
 .PHONY : kava/Kava.o
@@ -150,32 +177,32 @@ kava/Kava.cpp.s:
 	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/Kava.cpp.s
 .PHONY : kava/Kava.cpp.s
 
-kava/blob.o: kava/blob.cpp.o
+kava/layers/DataLayer.o: kava/layers/DataLayer.cpp.o
 
-.PHONY : kava/blob.o
+.PHONY : kava/layers/DataLayer.o
 
 # target to build an object file
-kava/blob.cpp.o:
-	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/blob.cpp.o
-.PHONY : kava/blob.cpp.o
+kava/layers/DataLayer.cpp.o:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.o
+.PHONY : kava/layers/DataLayer.cpp.o
 
-kava/blob.i: kava/blob.cpp.i
+kava/layers/DataLayer.i: kava/layers/DataLayer.cpp.i
 
-.PHONY : kava/blob.i
+.PHONY : kava/layers/DataLayer.i
 
 # target to preprocess a source file
-kava/blob.cpp.i:
-	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/blob.cpp.i
-.PHONY : kava/blob.cpp.i
+kava/layers/DataLayer.cpp.i:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.i
+.PHONY : kava/layers/DataLayer.cpp.i
 
-kava/blob.s: kava/blob.cpp.s
+kava/layers/DataLayer.s: kava/layers/DataLayer.cpp.s
 
-.PHONY : kava/blob.s
+.PHONY : kava/layers/DataLayer.s
 
 # target to generate assembly for a file
-kava/blob.cpp.s:
-	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/blob.cpp.s
-.PHONY : kava/blob.cpp.s
+kava/layers/DataLayer.cpp.s:
+	$(MAKE) -f CMakeFiles/kava_cpp.dir/build.make CMakeFiles/kava_cpp.dir/kava/layers/DataLayer.cpp.s
+.PHONY : kava/layers/DataLayer.cpp.s
 
 kava/layers/InnerProductLayer.o: kava/layers/InnerProductLayer.cpp.o
 
@@ -267,12 +294,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... kava_cpp"
+	@echo "... kava/Blob.o"
+	@echo "... kava/Blob.i"
+	@echo "... kava/Blob.s"
 	@echo "... kava/Kava.o"
 	@echo "... kava/Kava.i"
 	@echo "... kava/Kava.s"
-	@echo "... kava/blob.o"
-	@echo "... kava/blob.i"
-	@echo "... kava/blob.s"
+	@echo "... kava/layers/DataLayer.o"
+	@echo "... kava/layers/DataLayer.i"
+	@echo "... kava/layers/DataLayer.s"
 	@echo "... kava/layers/InnerProductLayer.o"
 	@echo "... kava/layers/InnerProductLayer.i"
 	@echo "... kava/layers/InnerProductLayer.s"

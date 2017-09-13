@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/nik/Desktop/kava-cpp/kava/Blob.cpp
+iostream
+-
+Blob.h
+/home/nik/Desktop/kava-cpp/kava/Blob.h
+
+/home/nik/Desktop/kava-cpp/kava/Blob.h
+Eigen/Dense
+/home/nik/Desktop/kava-cpp/kava/Eigen/Dense
+
 /home/nik/Desktop/kava-cpp/kava/Eigen/Cholesky
 Core
 /home/nik/Desktop/kava-cpp/kava/Eigen/Core
@@ -1049,24 +1059,32 @@ lapacke_mangling.h
 /home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
 /home/nik/Desktop/kava-cpp/kava/Kava.cpp
+iostream
+-
 Kava.h
 /home/nik/Desktop/kava-cpp/kava/Kava.h
 
 /home/nik/Desktop/kava-cpp/kava/Kava.h
 vector
 -
+map
+-
 layers/Layer.h
 /home/nik/Desktop/kava-cpp/kava/layers/Layer.h
 
-/home/nik/Desktop/kava-cpp/kava/blob.cpp
-blob.h
-/home/nik/Desktop/kava-cpp/kava/blob.h
+/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.cpp
+iostream
+-
+DataLayer.h
+/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.h
 
-/home/nik/Desktop/kava-cpp/kava/blob.h
-Eigen/Dense
-/home/nik/Desktop/kava-cpp/kava/Eigen/Dense
+/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.h
+Layer.h
+/home/nik/Desktop/kava-cpp/kava/layers/Layer.h
 
 /home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.cpp
+iostream
+-
 InnerProductLayer.h
 /home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.h
 
@@ -1079,8 +1097,16 @@ Layer.h
 /home/nik/Desktop/kava-cpp/kava/layers/Layer.h
 
 /home/nik/Desktop/kava-cpp/kava/layers/Layer.h
+../Blob.h
+/home/nik/Desktop/kava-cpp/kava/Blob.h
 
 /home/nik/Desktop/kava-cpp/main.cpp
 iostream
 -
+kava/Kava.h
+/home/nik/Desktop/kava-cpp/kava/Kava.h
+kava/layers/DataLayer.h
+/home/nik/Desktop/kava-cpp/kava/layers/DataLayer.h
+kava/layers/InnerProductLayer.h
+/home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.h
 

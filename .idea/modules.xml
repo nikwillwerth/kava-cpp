@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../kava-cpp/.idea/kava++.iml" filepath="$PROJECT_DIR$/../kava-cpp/.idea/kava++.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kava++.iml" filepath="$PROJECT_DIR$/.idea/kava++.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kava-cpp.iml" filepath="$PROJECT_DIR$/.idea/kava-cpp.iml" />
     </modules>
   </component>
 </project>
