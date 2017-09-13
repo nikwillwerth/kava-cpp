@@ -1,0 +1,931 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="kava_cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/nik/Desktop/kava-cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/nik/Desktop/kava-cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/nik/Desktop/kava-cpp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="kava_cpp">
+				<Option output="/home/nik/Desktop/kava-cpp/cmake-build-debug/kava_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nik/Desktop/kava-cpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 kava_cpp"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="kava_cpp/fast">
+				<Option output="/home/nik/Desktop/kava-cpp/cmake-build-debug/kava_cpp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nik/Desktop/kava-cpp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 kava_cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/nik/Desktop/kava-cpp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Cholesky/LDLT.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Cholesky/LLT.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Cholesky/LLT_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/CholmodSupport/CholmodSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Array.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ArrayBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ArrayWrapper.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Assign.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/AssignEvaluator.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Assign_MKL.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/BandMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Block.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/BooleanRedux.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CommaInitializer.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ConditionEstimator.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CoreEvaluators.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CoreIterators.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CwiseBinaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CwiseNullaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CwiseTernaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CwiseUnaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/CwiseUnaryView.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/DenseBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/DenseCoeffsBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/DenseStorage.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Diagonal.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/DiagonalMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/DiagonalProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Dot.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/EigenBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ForceAlignedAccess.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Fuzzy.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/GeneralProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/GenericPacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/GlobalFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/IO.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Inverse.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Map.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/MapBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/MathFunctionsImpl.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Matrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/MatrixBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/NestByValue.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/NoAlias.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/NumTraits.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/PermutationMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/PlainObjectBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Product.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ProductEvaluators.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Random.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Redux.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Ref.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Replicate.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/ReturnByValue.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Reverse.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Select.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/SelfAdjointView.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/SelfCwiseBinaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Solve.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/SolveTriangular.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/SolverBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/StableNorm.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Stride.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Swap.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Transpose.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Transpositions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/TriangularMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/VectorBlock.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/VectorwiseOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/Visitor.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX/TypeCasting.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX512/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AVX512/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AltiVec/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AltiVec/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/AltiVec/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/Half.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/PacketMathHalf.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/CUDA/TypeCasting.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/Default/Settings.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/NEON/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/NEON/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/NEON/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/SSE/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/SSE/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/SSE/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/SSE/TypeCasting.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/ZVector/Complex.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/ZVector/MathFunctions.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/arch/ZVector/PacketMath.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/AssignmentFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/BinaryFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/NullaryFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/StlFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/TernaryFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/functors/UnaryFunctors.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralBlockPanelKernel.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixMatrixTriangular_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixMatrix_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/GeneralMatrixVector_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/Parallelizer.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointMatrixMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointMatrixMatrix_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointMatrixVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointMatrixVector_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/SelfadjointRank2Update.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularMatrixMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularMatrixMatrix_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularMatrixVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularMatrixVector_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularSolverMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularSolverMatrix_BLAS.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/products/TriangularSolverVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/BlasUtil.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/Constants.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/DisableStupidWarnings.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/ForwardDeclarations.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/MKL_support.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/Macros.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/Memory.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/Meta.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/NonMPL2.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/ReenableStupidWarnings.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/StaticAssert.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Core/util/XprHelper.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/ComplexEigenSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/ComplexSchur.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/ComplexSchur_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/EigenSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/GeneralizedSelfAdjointEigenSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/HessenbergDecomposition.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/RealQZ.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/RealSchur.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/RealSchur_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/SelfAdjointEigenSolver_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Eigenvalues/Tridiagonalization.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/AlignedBox.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/AngleAxis.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/EulerAngles.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Homogeneous.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Hyperplane.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/OrthoMethods.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/ParametrizedLine.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Quaternion.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Rotation2D.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/RotationBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Scaling.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Transform.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Translation.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/Umeyama.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Geometry/arch/Geometry_SSE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Householder/BlockHouseholder.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Householder/Householder.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Householder/HouseholderSequence.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/BiCGSTAB.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/ConjugateGradient.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/IncompleteCholesky.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/IncompleteLUT.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/LeastSquareConjugateGradient.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/IterativeLinearSolvers/SolveWithGuess.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/Jacobi/Jacobi.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/Determinant.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/FullPivLU.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/InverseImpl.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/PartialPivLU.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/PartialPivLU_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/LU/arch/Inverse_SSE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/MetisSupport/MetisSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/OrderingMethods/Amd.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/OrderingMethods/Eigen_Colamd.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/OrderingMethods/Ordering.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/PaStiXSupport/PaStiXSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/PardisoSupport/PardisoSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/ColPivHouseholderQR.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/ColPivHouseholderQR_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/CompleteOrthogonalDecomposition.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/FullPivHouseholderQR.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/HouseholderQR.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/QR/HouseholderQR_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SPQRSupport/SuiteSparseQRSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SVD/BDCSVD.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SVD/JacobiSVD.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SVD/JacobiSVD_LAPACKE.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SVD/SVDBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SVD/UpperBidiagonalization.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCholesky/SimplicialCholesky.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCholesky/SimplicialCholesky_impl.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/AmbiVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/CompressedStorage.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/ConservativeSparseSparseProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/MappedSparseMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseAssign.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseBlock.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseColEtree.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseCompressedBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseCwiseBinaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseCwiseUnaryOp.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseDenseProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseDiagonalProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseDot.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseFuzzy.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseMap.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseMatrixBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparsePermutation.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseProduct.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseRedux.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseRef.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseSelfAdjointView.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseSolverBase.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseSparseProductWithPruning.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseTranspose.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseTriangularView.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseUtil.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/SparseView.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseCore/TriangularSolver.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLUImpl.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_Memory.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_Structs.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_SupernodalMatrix.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_Utils.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_column_bmod.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_column_dfs.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_copy_to_ucol.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_gemm_kernel.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_heap_relax_snode.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_kernel_bmod.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_panel_bmod.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_panel_dfs.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_pivotL.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_pruneL.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseLU/SparseLU_relax_snode.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SparseQR/SparseQR.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/StlSupport/StdDeque.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/StlSupport/StdList.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/StlSupport/StdVector.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/StlSupport/details.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/SuperLUSupport/SuperLUSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/UmfPackSupport/UmfPackSupport.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/Image.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/Kernel.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/RealSvd2x2.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/blas.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/lapack.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/lapacke.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/misc/lapacke_mangling.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/ArrayCwiseBinaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/ArrayCwiseUnaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/BlockMethods.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/CommonCwiseBinaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/CommonCwiseUnaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/MatrixCwiseBinaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Eigen/src/plugins/MatrixCwiseUnaryOps.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Kava.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/Kava.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/blob.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/blob.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/InnerProductLayer.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/Layer.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/kava/layers/Layer.h">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/main.cpp">
+			<Option target="kava_cpp"/>
+		</Unit>
+		<Unit filename="/home/nik/Desktop/kava-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
