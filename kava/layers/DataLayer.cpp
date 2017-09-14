@@ -22,12 +22,10 @@ void DataLayer::setUp()
 
 void DataLayer::forward()
 {
-    float *data = new float[topBlobs[0]->count];
-
     for(int i = 0; i < topBlobs[0]->count; i++)
     {
-        data[i] = i;
+        topBlobs[0]->data[i] = i;
     }
 
-    topBlobs[0]->dataMatrix = new Map<MatrixXf>(data, width, height);
+    new (topBlobs[0]->dataMatrix) Map<MatrixXf>(topBlobs[0]->data, width, height);
 }

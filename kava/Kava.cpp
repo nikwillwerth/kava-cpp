@@ -61,6 +61,29 @@ void Kava::setUp()
         layer->setUp();
     }
 
-    layers[0]->forward();
-    layers[1]->forward();
+    for(int i = 0; i < 10; i++)
+    {
+        for(long j = 0; j < layers.size(); j++)
+        {
+            layers[j]->forward();
+        }
+
+        for(long j = (layers.size() - 1); j > 0; j--)
+        {
+            layers[j]->backward();
+
+            if(j == (layers.size() - 1))
+            {
+                std::cout << "\tloss: " << layers[j]->topBlobs[0]->dataMatrix->data()[0] << std::endl;
+            }
+        }
+
+        for(long j = 0; j < layers.size(); j++)
+        {
+            if(layers[j]->weightBlobs.size() > 0)
+            {
+                layers[j]->weightBlobs[0]->updateWeights(0.01f);
+            }
+        }
+    }
 }

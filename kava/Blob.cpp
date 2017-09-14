@@ -29,6 +29,27 @@ void Blob::reshape(const int num, const int channels, const int height, const in
     data = new float[count];
     diff = new float[count];
 
-    dataMatrix = new Map<MatrixXf>(data, count, 1);
-    diffMatrix = new Map<MatrixXf>(diff, count, 1);
+    dataMatrix = new MatrixXf(count, 1);
+    diffMatrix = new MatrixXf(count, 1);
+}
+
+void Blob::updateWeights(float learningRate)
+{
+    /*for(int i = 0; i < count; i++)
+    {
+        std::cout << dataMatrix.data()[i] << ", ";
+    }
+
+    std::cout << std::endl;*/
+
+    MatrixXf diffResult = *diffMatrix;
+    MatrixXf dataResult = *dataMatrix;
+
+    dataResult -= diffResult;
+
+    long rows = dataMatrix->rows();
+    long cols = dataMatrix->cols();
+
+    //dataMatrix = &dataResult;
+    new (dataMatrix) Map<MatrixXf>(dataResult.data(), rows, cols);
 }

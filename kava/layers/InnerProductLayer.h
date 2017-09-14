@@ -10,6 +10,7 @@ public:
 
     void setUp();
     void forward();
+    void backward();
 
     int numInputs;
     int numOutputs;

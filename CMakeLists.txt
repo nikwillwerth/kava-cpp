@@ -3,7 +3,7 @@ project(kava_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-O3")
+#set(CMAKE_CXX_FLAGS "-O3")
 
 set(SOURCE_FILES
         kava/Eigen/src/Cholesky/LDLT.h
@@ -287,6 +287,6 @@ set(SOURCE_FILES
         kava/Blob.h
         kava/Kava.cpp
         kava/Kava.h
-        main.cpp)
+        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h)
 
 add_executable(kava_cpp ${SOURCE_FILES})
