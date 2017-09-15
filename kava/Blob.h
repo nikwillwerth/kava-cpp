@@ -19,8 +19,8 @@ public:
     float *diff;
     int count;
 
-    MatrixXf *dataMatrix;
-    MatrixXf *diffMatrix;
+    MatrixXf dataMatrix;
+    MatrixXf diffMatrix;
 };
 
 #endif //KAVA_BLOB_H

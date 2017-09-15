@@ -25,7 +25,7 @@ void EuclideanLossLayer::setUp()
 
 void EuclideanLossLayer::forward()
 {
-    std::cout << "\t\t\t\t" << bottomBlobs[0] << std::endl;
+    /*std::cout << "\t\t\t\t" << bottomBlobs[0] << std::endl;
 
     Map<RowVectorXf> a(bottomBlobs[0]->dataMatrix->data(), bottomBlobs[0]->dataMatrix->size());
 
@@ -36,10 +36,10 @@ void EuclideanLossLayer::forward()
         std::cout << a[i] << ", ";
     }
 
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
-    Map<RowVectorXf> bottomOne(bottomBlobs[0]->dataMatrix->data(), bottomBlobs[0]->count);
-    Map<RowVectorXf> bottomTwo(bottomBlobs[1]->dataMatrix->data(), bottomBlobs[1]->count);
+    Map<RowVectorXf> bottomOne(bottomBlobs[0]->dataMatrix.data(), bottomBlobs[0]->count);
+    Map<RowVectorXf> bottomTwo(bottomBlobs[1]->dataMatrix.data(), bottomBlobs[1]->count);
 
     diffMatrix = bottomOne - bottomTwo;
 
@@ -47,17 +47,15 @@ void EuclideanLossLayer::forward()
 
     topBlobs[0]->data[0] = loss;
 
-    new (topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
+    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
 }
 
 void EuclideanLossLayer::backward()
 {
     //new (bottomBlobs[0]->diffMatrix) Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
 
-    MatrixXf result = diffMatrix * -1.0f;
-
-    bottomBlobs[0]->diffMatrix = &diffMatrix;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
-    bottomBlobs[1]->diffMatrix = &result;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
+    bottomBlobs[0]->diffMatrix = diffMatrix *  1.0f;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
+    bottomBlobs[1]->diffMatrix = diffMatrix * -1.0f;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
 
     /*std::cout << "backward" << std::endl;
 

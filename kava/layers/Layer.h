@@ -2,6 +2,8 @@
 #define KAVA_LAYER_H
 
 #include "../Blob.h"
+#include <string>
+#include <vector>
 
 class Layer
 {
