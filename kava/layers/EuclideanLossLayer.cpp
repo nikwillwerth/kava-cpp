@@ -10,7 +10,7 @@ EuclideanLossLayer::EuclideanLossLayer(std::string name, std::string bottomBlobO
 
     bottomBlobNames.push_back(bottomBlobOneName);
     bottomBlobNames.push_back(bottomBlobTwoName);
-    topBlobs.push_back(new Blob(topBlobName, 1, 1, 1, 1));
+    topBlobs.push_back(new Blob(topBlobName, 1, 1, 1));
 }
 
 void EuclideanLossLayer::setUp()

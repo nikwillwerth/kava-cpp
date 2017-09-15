@@ -8,11 +8,9 @@ DataLayer::DataLayer(std::string name, int width, int height, int channels)
     this->height   = height;
     this->channels = channels;
 
-    bottomBlobs = std::vector<Blob *>();
-    topBlobs    = std::vector<Blob *>();
-    weightBlobs = std::vector<Blob *>();
+    topBlobs = std::vector<Blob *>();
 
-    topBlobs.push_back(new Blob(name, 1, channels, height, width));
+    topBlobs.push_back(new Blob(name, channels, height, width));
 }
 
 void DataLayer::setUp()

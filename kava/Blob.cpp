@@ -1,30 +1,26 @@
-//
-// Created by nik on 9/13/17.
-//
-
 #include <iostream>
 #include "Blob.h"
 
-Blob::Blob(std::string name)
+Blob::Blob(const std::string &name)
 {
     this->name = name;
 }
 
-Blob::Blob(std::string name, const int num, const int channels, const int height, const int width)
+Blob::Blob(const std::string &name, const int channels, const int height, const int width)
 {
     this->name = name;
 
-    reshape(num, channels, height, width);
+    reshape(channels, height, width);
 }
 
-Blob::Blob(const int num, const int channels, const int height, const int width)
+Blob::Blob(const int channels, const int height, const int width)
 {
-    reshape(num, channels, height, width);
+    reshape(channels, height, width);
 }
 
-void Blob::reshape(const int num, const int channels, const int height, const int width)
+void Blob::reshape(const int channels, const int height, const int width)
 {
-    count = num * channels * height * width;
+    count = channels * height * width;
 
     data = new float[count];
     diff = new float[count];
