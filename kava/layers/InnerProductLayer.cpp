@@ -1,7 +1,7 @@
 #include <iostream>
 #include "InnerProductLayer.h"
 
-InnerProductLayer::InnerProductLayer(std::string name, std::string bottomBlobName, std::string topBlobName, int numOutputs)
+InnerProductLayer::InnerProductLayer(const std::string name, std::string bottomBlobName, std::string topBlobName, int numOutputs)
 {
     this->name       = name;
     this->numOutputs = numOutputs;
@@ -24,9 +24,13 @@ void InnerProductLayer::setUp()
     weightBlobs[0]->reshape(1, numOutputs, numInputs);
     topBlobs[0]->reshape(   1, 1,          numOutputs);
 
+    float variance = (2.0f / (numInputs + numOutputs));
+
     for(int i = 0; i < weightBlobs[0]->count; i++)
     {
-        weightBlobs[0]->data[i] = 0.01f;
+        float randy = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+
+        weightBlobs[0]->data[i] = ((randy * 2.0f) - 1.0f) * variance;
     }
 
     new (&weightBlobs[0]->dataMatrix) Map<MatrixXf>(weightBlobs[0]->data, numOutputs, numInputs);
@@ -42,6 +46,7 @@ void InnerProductLayer::forward()
 
 void InnerProductLayer::backward()
 {
+    topBlobs[0]->diffMatrix.resize(topBlobs[0]->count / numOutputs, numOutputs);
     weightBlobs[0]->dataMatrix.resize(numOutputs, numInputs);
 
     bottomBlobs[0]->diffMatrix.noalias() = topBlobs[0]->diffMatrix * weightBlobs[0]->dataMatrix;

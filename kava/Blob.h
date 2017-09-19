@@ -18,6 +18,9 @@ public:
     float *data;
     float *diff;
     int count;
+    int channels;
+    int height;
+    int width;
 
     MatrixXf dataMatrix;
     MatrixXf diffMatrix;

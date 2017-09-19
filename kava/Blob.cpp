@@ -20,6 +20,10 @@ Blob::Blob(const int channels, const int height, const int width)
 
 void Blob::reshape(const int channels, const int height, const int width)
 {
+    this->channels = channels;
+    this->height   = height;
+    this->width    = width;
+
     count = channels * height * width;
 
     data = new float[count];
@@ -31,13 +35,6 @@ void Blob::reshape(const int channels, const int height, const int width)
 
 void Blob::updateWeights(float learningRate)
 {
-    /*for(int i = 0; i < count; i++)
-    {
-        std::cout << dataMatrix.data()[i] << ", ";
-    }
-
-    std::cout << std::endl;*/
-
     dataMatrix -= diffMatrix * learningRate;
 
     //dataMatrix = &dataResult;

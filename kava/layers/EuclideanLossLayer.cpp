@@ -25,25 +25,11 @@ void EuclideanLossLayer::setUp()
 
 void EuclideanLossLayer::forward()
 {
-    /*std::cout << "\t\t\t\t" << bottomBlobs[0] << std::endl;
+    bottomBlobs[1]->dataMatrix.resize(bottomBlobs[0]->dataMatrix.rows(), bottomBlobs[0]->dataMatrix.cols());
 
-    Map<RowVectorXf> a(bottomBlobs[0]->dataMatrix->data(), bottomBlobs[0]->dataMatrix->size());
+    diffMatrix = bottomBlobs[0]->dataMatrix - bottomBlobs[1]->dataMatrix;
 
-    std::cout << bottomBlobs[0]->name << std::endl;
-
-    for(int i = 0; i < a.size(); i++)
-    {
-        std::cout << a[i] << ", ";
-    }
-
-    std::cout << std::endl;*/
-
-    Map<RowVectorXf> bottomOne(bottomBlobs[0]->dataMatrix.data(), bottomBlobs[0]->count);
-    Map<RowVectorXf> bottomTwo(bottomBlobs[1]->dataMatrix.data(), bottomBlobs[1]->count);
-
-    diffMatrix = bottomOne - bottomTwo;
-
-    float loss = (float)((diffMatrix.array() * diffMatrix.array()).sum() / 2.0f);;
+    float loss = (float)((diffMatrix.array() * diffMatrix.array()).sum() / 2.0f);
 
     topBlobs[0]->data[0] = loss;
 
@@ -52,45 +38,6 @@ void EuclideanLossLayer::forward()
 
 void EuclideanLossLayer::backward()
 {
-    //new (bottomBlobs[0]->diffMatrix) Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
-
-    bottomBlobs[0]->diffMatrix = diffMatrix *  1.0f;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
-    bottomBlobs[1]->diffMatrix = diffMatrix * -1.0f;//Map<MatrixXf>(diffMatrix.data(), diffMatrix.rows(), diffMatrix.cols());
-
-    /*std::cout << "backward" << std::endl;
-
-    Map<RowVectorXf> a(diffMatrix.data(), diffMatrix.size());
-    Map<RowVectorXf> b(bottomBlobs[0]->diffMatrix->data(), bottomBlobs[0]->diffMatrix->size());
-    Map<RowVectorXf> c(bottomBlobs[1]->diffMatrix->data(), bottomBlobs[1]->diffMatrix->size());
-
-    std::cout << "1." << std::endl << "\t";
-
-    for(int i = 0; i < a.size(); i++)
-    {
-        std::cout << a[i] << ", ";
-    }
-
-    std::cout << std::endl;
-
-    std::cout << "2." << std::endl << "\t";
-
-    for(int i = 0; i < b.size(); i++)
-    {
-        std::cout << b[i] << ", ";
-    }
-
-    std::cout << std::endl;
-
-    std::cout << "3." << std::endl << "\t";
-
-    for(int i = 0; i < c.size(); i++)
-    {
-        std::cout << c[i] << ", ";
-    }
-
-    std::cout << std::endl;*/
-
-    //std::cout << "\t\t1. " <<                  diffMatrix << std::endl;
-    //std::cout << "\t\t2. " << *bottomBlobs[0]->diffMatrix << std::endl;
-    //std::cout << "\t\t3. " << *bottomBlobs[1]->diffMatrix << std::endl;
+    bottomBlobs[0]->diffMatrix = diffMatrix *  1.0f;
+    bottomBlobs[1]->diffMatrix = diffMatrix * -1.0f;
 }
