@@ -287,6 +287,6 @@ set(SOURCE_FILES
         kava/Blob.h
         kava/Kava.cpp
         kava/Kava.h
-        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h kava/layers/MNISTDataLayer.cpp kava/layers/MNISTDataLayer.h kava/layers/SoftmaxWithLossLayer.cpp kava/layers/SoftmaxWithLossLayer.h kava/layers/ReLULayer.cpp kava/layers/ReLULayer.h)
+        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h kava/layers/MNISTDataLayer.cpp kava/layers/MNISTDataLayer.h kava/layers/SoftmaxWithLossLayer.cpp kava/layers/SoftmaxWithLossLayer.h kava/layers/ReLULayer.cpp kava/layers/ReLULayer.h kava/utils/FileUtils.cpp kava/utils/FileUtils.h)
 
-add_executable(kava_cpp ${SOURCE_FILES})
+add_executable(kava_cpp ${SOURCE_FILES} ${SOURCES})

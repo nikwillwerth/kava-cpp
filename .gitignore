@@ -89,3 +89,4 @@ fabric.properties
 
 
 cmake-build-debug/
+/data/mnist/*-ubyte
