@@ -69,9 +69,13 @@ void Kava::setUp()
         layer->setUp();
     }
 
-    float learningRate = 0.01f;
+    float learningRate = 0.001f;
 
-    for(int i = 0; i < 1000; i++)
+    int numIterations = 1000;
+
+    const clock_t begin_time = clock();
+
+    for(int i = 0; i < numIterations; i++)
     {
         for(long j = 0; j < layers.size(); j++)
         {
@@ -86,7 +90,7 @@ void Kava::setUp()
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
 
-                if((i % 100) == 0)
+                if((i % 10) == 0)
                 {
                     std::cout << "\tloss: " << loss << std::endl;
                 }
@@ -111,4 +115,9 @@ void Kava::setUp()
             //learningRate /= 2;
         }
     }
+
+    float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
+
+    std::cout << "Time per image for training: " << (numSeconds / numIterations) << numSeconds << std::endl;
+    std::cout << "Total time for training:     " << numSeconds << std::endl;
 }
