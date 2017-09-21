@@ -24,16 +24,7 @@ void InnerProductLayer::setUp()
     weightBlobs[0]->reshape(1, numOutputs, numInputs);
     topBlobs[0]->reshape(   1, 1,          numOutputs);
 
-    float variance = (2.0f / (numInputs + numOutputs));
-
-    for(int i = 0; i < weightBlobs[0]->count; i++)
-    {
-        float randy = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-
-        weightBlobs[0]->data[i] = ((randy * 2.0f) - 1.0f) * variance;
-    }
-
-    new (&weightBlobs[0]->dataMatrix) Map<MatrixXf>(weightBlobs[0]->data, numOutputs, numInputs);
+    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], numInputs, numOutputs);
 }
 
 void InnerProductLayer::forward()

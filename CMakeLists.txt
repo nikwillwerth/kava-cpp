@@ -287,6 +287,6 @@ set(SOURCE_FILES
         kava/Blob.h
         kava/Kava.cpp
         kava/Kava.h
-        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h kava/layers/MNISTDataLayer.cpp kava/layers/MNISTDataLayer.h kava/layers/SoftmaxWithLossLayer.cpp kava/layers/SoftmaxWithLossLayer.h kava/layers/ReLULayer.cpp kava/layers/ReLULayer.h kava/utils/FileUtils.cpp kava/utils/FileUtils.h)
+        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h kava/layers/MNISTDataLayer.cpp kava/layers/MNISTDataLayer.h kava/layers/SoftmaxWithLossLayer.cpp kava/layers/SoftmaxWithLossLayer.h kava/layers/ReLULayer.cpp kava/layers/ReLULayer.h kava/utils/FileUtils.cpp kava/utils/FileUtils.h kava/utils/MathUtils.cpp kava/utils/MathUtils.h kava/weightfillers/WeightFiller.cpp kava/weightfillers/WeightFiller.h kava/weightfillers/ConstantWeightFiller.cpp kava/weightfillers/ConstantWeightFiller.h kava/weightfillers/MSRAWeightFiller.cpp kava/weightfillers/MSRAWeightFiller.h kava/weightfillers/XavierWeightFiller.cpp kava/weightfillers/XavierWeightFiller.h kava/weightfillers/GaussianWeightFiller.cpp kava/weightfillers/GaussianWeightFiller.h)
 
 add_executable(kava_cpp ${SOURCE_FILES} ${SOURCES})

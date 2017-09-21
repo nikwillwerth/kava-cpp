@@ -13,14 +13,23 @@ ReLULayer::ReLULayer(const std::string name, std::string bottomBlobName, std::st
     topBlobs        = std::vector<Blob *>();
 
     bottomBlobNames.push_back(bottomBlobName);
-    topBlobs.push_back(   new Blob(topBlobName));
+
+    isInPlace = (bottomBlobName == topBlobName);
+
+    if(!isInPlace)
+    {
+        topBlobs.push_back(new Blob(topBlobName));
+    }
 }
 
 void ReLULayer::setUp()
 {
     std::cout << "Setting up ReLU layer..." << std::endl;
 
-    topBlobs[0]->reshape(bottomBlobs[0]->channels, bottomBlobs[0]->height, bottomBlobs[0]->width);
+    if(!isInPlace)
+    {
+        topBlobs[0]->reshape(bottomBlobs[0]->channels, bottomBlobs[0]->height, bottomBlobs[0]->width);
+    }
 }
 
 void ReLULayer::forward()

@@ -26,8 +26,29 @@ void SoftmaxWithLossLayer::setUp()
 float epsilon = 1.1755e-38;
 
 void SoftmaxWithLossLayer::forward()
+
 {
-    float max      = bottomBlobs[0]->dataMatrix.array().maxCoeff();
+    MatrixXf exp = bottomBlobs[0]->dataMatrix.array().exp();
+
+    float denominator = exp.sum();
+
+    MatrixXf expDiv = exp / denominator;
+
+    expDiv.resize(bottomBlobs[1]->diffMatrix.rows(), bottomBlobs[1]->diffMatrix.cols());
+
+    bottomBlobs[0]->diffMatrix.noalias() = expDiv - bottomBlobs[1]->diffMatrix;
+
+    MatrixXf log = expDiv.array().log();
+
+    log.resize(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols());
+
+    MatrixXf mul = bottomBlobs[1]->dataMatrix.cwiseProduct(log);
+
+    float loss = -mul.sum();
+
+    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
+
+    /*float max      = bottomBlobs[0]->dataMatrix.array().maxCoeff();
     int   maxIndex = -1;
 
     MatrixXf shift = MatrixXf::Ones(bottomBlobs[0]->dataMatrix.rows(), bottomBlobs[0]->dataMatrix.cols());
@@ -64,11 +85,11 @@ void SoftmaxWithLossLayer::forward()
 
     float loss = fabs(lossArray.data()[maxIndex]);
 
-    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
+    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);*/
 }
 
 void SoftmaxWithLossLayer::backward()
 {
-    bottomBlobs[0]->diffMatrix = diffMatrix;
-    bottomBlobs[1]->diffMatrix = diffMatrix;
+    /*bottomBlobs[0]->diffMatrix = diffMatrix;
+    bottomBlobs[1]->diffMatrix = diffMatrix;*/
 }

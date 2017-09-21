@@ -15,6 +15,9 @@ public:
 
 private:
     MatrixXf reluMask;
+
+    std::string bottomBlobName;
+    std::string topBlobName;
 };
 
 #endif //KAVA_CPP_RELULAYER_H

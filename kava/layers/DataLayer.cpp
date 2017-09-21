@@ -21,21 +21,17 @@ void DataLayer::setUp()
     {
         for(int i = 0; i < topBlobs[0]->count; i++)
         {
-            float randy = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
-
-            topBlobs[0]->data[i] = randy;
+            topBlobs[0]->data[i] = 1;
         }
     }
     else
     {
         for(int i = 0; i < topBlobs[0]->count; i++)
         {
-            topBlobs[0]->data[i] = 0;
+            topBlobs[0]->data[i] = 1;
         }
 
-        int index = 9;//(int)(static_cast <float> (rand()) / static_cast <float> (RAND_MAX) * 9.9f);
-
-        topBlobs[0]->data[index] = 1;
+        //topBlobs[0]->data[3] = 1;
     }
 
     new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(topBlobs[0]->data, width, height);

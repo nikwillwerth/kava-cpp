@@ -17,9 +17,12 @@ Kava* Kava::addLayer(Layer *layer)
     {
         if(nameToBlobMap.count(topBlob->name))
         {
-            std::cout << "Duplicate blob found in layer " << layer->name << ": " << topBlob->name << std::endl;
+            if(!layer->isInPlace)
+            {
+                std::cout << "Duplicate blob found in layer " << layer->name << ": " << topBlob->name << std::endl;
 
-            exit(-1);
+                exit(-1);
+            }
         }
 
         nameToBlobMap[topBlob->name] = topBlob;
@@ -55,6 +58,11 @@ void Kava::setUp()
                 }
 
                 layer->bottomBlobs.push_back(nameToBlobMap[layer->bottomBlobNames[i]]);
+
+                if(layer->isInPlace)
+                {
+                    layer->topBlobs.push_back(nameToBlobMap[layer->bottomBlobNames[i]]);
+                }
             }
         }
 
@@ -63,7 +71,7 @@ void Kava::setUp()
 
     float learningRate = 0.01f;
 
-    for(int i = 0; i < 100; i++)
+    for(int i = 0; i < 1000; i++)
     {
         for(long j = 0; j < layers.size(); j++)
         {
@@ -78,9 +86,12 @@ void Kava::setUp()
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
 
-                std::cout << "\tloss: " << loss << std::endl;
+                if((i % 100) == 0)
+                {
+                    std::cout << "\tloss: " << loss << std::endl;
+                }
 
-                if(isnan(loss))
+                if(isnan(loss) || isinf(loss))
                 {
                     exit(-1);
                 }

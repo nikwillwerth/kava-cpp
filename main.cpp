@@ -9,15 +9,21 @@
 
 int main()
 {
-    Kava *kava = new Kava();
+    srand(time(NULL));
 
-    kava->addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
-    kava->addLayer(new InnerProductLayer("fc1", "data", "fc1", 256));
-    kava->addLayer(new ReLULayer("relu1", "fc1", "relu1"));
-    kava->addLayer(new InnerProductLayer("fc2", "relu1", "fc2", 10));
-    kava->addLayer(new SoftmaxWithLossLayer("loss", "fc2", "label", "loss"));
+    Kava kava = Kava();
 
-    kava->setUp();
+    kava.addLayer(new DataLayer("data", 2, 2, 1));
+    kava.addLayer(new DataLayer("label", 5, 5, 1));
+    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
+    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
+    kava.addLayer((new InnerProductLayer("fc1", "data", "fc1", 4096))->setWeightFiller(WeightFiller::Type::MSRA));
+    kava.addLayer(new ReLULayer("relu1", "fc1", "fc1"));
+    kava.addLayer((new InnerProductLayer("fc2", "fc1", "fc2", 25))->setWeightFiller(WeightFiller::Type::Xavier));
+    //kava.addLayer(new SoftmaxWithLossLayer("loss", "fc2", "label", "loss"));
+    kava.addLayer(new EuclideanLossLayer("loss", "fc2", "label", "loss"));
+
+    kava.setUp();
 
     return 0;
 }
