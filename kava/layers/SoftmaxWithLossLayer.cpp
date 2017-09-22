@@ -1,6 +1,9 @@
 #include <iostream>
 #include "SoftmaxWithLossLayer.h"
 
+#define EPS 1e-6
+#define ONE_MINUS_EPS 1-1e-6
+
 SoftmaxWithLossLayer::SoftmaxWithLossLayer(std::string name, std::string bottomBlobOneName, std::string bottomBlobTwoName, std::string topBlobName)
 {
     this->name = name;
@@ -25,35 +28,66 @@ void SoftmaxWithLossLayer::setUp()
 
 void SoftmaxWithLossLayer::forward()
 {
-    MatrixXf exp = bottomBlobs[0]->dataMatrix.array().exp();
+    //softmax
+    float maxInputValue = bottomBlobs[0]->dataMatrix.maxCoeff();
 
-    float denominator = exp.sum();
+    MatrixXf maxInputValueMatrix = MatrixXf::Constant(bottomBlobs[0]->dataMatrix.rows(), bottomBlobs[0]->dataMatrix.cols(), maxInputValue);
 
-    MatrixXf softmax = exp / denominator;
+    bottomBlobs[0]->dataMatrix -= maxInputValueMatrix;
 
+    //regularization
+    MatrixXf inputExponential = bottomBlobs[0]->dataMatrix.array().exp();
+
+    float inputExponentialSum = inputExponential.sum();
+
+    MatrixXf softmax = inputExponential / inputExponentialSum;
+    softmax = softmax.cwiseMin(ONE_MINUS_EPS);
+    softmax = softmax.cwiseMax(EPS);
+
+    //cross entropy loss
     softmax.resize(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols());
 
-    bottomBlobs[0]->diffMatrix.noalias() = softmax - bottomBlobs[1]->dataMatrix;
+    MatrixXf epsMatrix = MatrixXf::Constant(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols(), EPS);
 
-    MatrixXf log = softmax.array().log();
+    diffMatrix = softmax - epsMatrix - bottomBlobs[1]->dataMatrix;
 
-    log.resize(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols());
+    MatrixXf logLossMatrix = softmax;
 
-    MatrixXf mul = bottomBlobs[1]->dataMatrix.cwiseProduct(log);
+    for(int i = 0; i < logLossMatrix.size(); i++)
+    {
+        if(logLossMatrix.data()[i] != 0)
+        {
+            logLossMatrix.data()[i] = logf(logLossMatrix.data()[i]);
+        }
+        else if(logLossMatrix.data()[i] == EPS)
+        {
+            logLossMatrix.data()[i] = 0;
+        }
+    }
 
-    MatrixXf inverseTargets = MatrixXf::Ones(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols()) - bottomBlobs[1]->dataMatrix;
+    logLossMatrix.resize(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols());
 
-    MatrixXf inversePredictions = (MatrixXf::Ones(softmax.rows(), softmax.cols()) * (1.0f + 1.0e-6)) - softmax;
+    //y log(y')
+    MatrixXf yLogYPrime = bottomBlobs[1]->dataMatrix.cwiseProduct(logLossMatrix);
 
-    MatrixXf b = inverseTargets.cwiseProduct(inversePredictions.array().log().matrix());
+    MatrixXf onesMatrix = MatrixXf::Ones(bottomBlobs[1]->dataMatrix.rows(), bottomBlobs[1]->dataMatrix.cols());
 
-    float loss = (mul + b).sum() / -mul.size();
+    //1 - y
+    MatrixXf oneMinusLabel = onesMatrix - bottomBlobs[1]->dataMatrix;
+
+    //1 - y'
+    MatrixXf oneMinusPrediction = MatrixXf::Ones(softmax.rows(), softmax.cols()) - softmax;
+
+    //(1-y)log(1-y')
+    MatrixXf oneMinusLogOneMinus = oneMinusLabel.cwiseProduct(oneMinusPrediction.array().log().matrix());
+
+    float loss = (yLogYPrime + oneMinusLogOneMinus).sum() / -yLogYPrime.size();
 
     new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
 }
 
 void SoftmaxWithLossLayer::backward()
 {
-    //bottomBlobs[0]->diffMatrix = diffMatrix;
-    //bottomBlobs[1]->diffMatrix = diffMatrix;
+    bottomBlobs[0]->diffMatrix =  diffMatrix;
+    bottomBlobs[1]->diffMatrix = -diffMatrix;
 }

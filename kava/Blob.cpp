@@ -35,6 +35,8 @@ void Blob::reshape(const int channels, const int height, const int width)
 
 void Blob::updateWeights(float learningRate)
 {
+    diffMatrix.resize(dataMatrix.rows(), dataMatrix.cols());
+
     dataMatrix -= diffMatrix * learningRate;
 
     //dataMatrix = &dataResult;

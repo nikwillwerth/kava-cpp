@@ -1,5 +1,6 @@
 #include <iostream>
 #include "DataLayer.h"
+#include "../utils/MathUtils.h"
 
 DataLayer::DataLayer(std::string name, int width, int height, int channels)
 {
@@ -28,10 +29,10 @@ void DataLayer::setUp()
     {
         for(int i = 0; i < topBlobs[0]->count; i++)
         {
-            topBlobs[0]->data[i] = 1;
+            topBlobs[0]->data[i] = 0;
         }
 
-        //topBlobs[0]->data[3] = 1;
+        topBlobs[0]->data[3] = 1;
     }
 
     new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(topBlobs[0]->data, width, height);

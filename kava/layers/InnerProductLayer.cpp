@@ -24,26 +24,20 @@ void InnerProductLayer::setUp()
     weightBlobs[0]->reshape(1, numOutputs, numInputs);
     topBlobs[0]->reshape(   1, 1,          numOutputs);
 
-    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], numInputs, numOutputs);
+    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], numOutputs, numInputs);
 }
 
 void InnerProductLayer::forward()
 {
-    bottomBlobs[0]->dataMatrix.resize(1,         numInputs);
-    weightBlobs[0]->dataMatrix.resize(numInputs, numOutputs);
+    bottomBlobs[0]->dataMatrix.resize(numInputs, 1);
 
-    topBlobs[0]->dataMatrix.noalias() = bottomBlobs[0]->dataMatrix * weightBlobs[0]->dataMatrix;
+    topBlobs[0]->dataMatrix.noalias() = weightBlobs[0]->dataMatrix * bottomBlobs[0]->dataMatrix;
 }
 
 void InnerProductLayer::backward()
 {
-    topBlobs[0]->diffMatrix.resize(topBlobs[0]->count / numOutputs, numOutputs);
-    weightBlobs[0]->dataMatrix.resize(numOutputs, numInputs);
+    topBlobs[0]->diffMatrix.resize(numOutputs, 1);
 
-    bottomBlobs[0]->diffMatrix.noalias() = topBlobs[0]->diffMatrix * weightBlobs[0]->dataMatrix;
-
-    topBlobs[0]->diffMatrix.resize(topBlobs[0]->diffMatrix.cols(), topBlobs[0]->diffMatrix.rows());
-    bottomBlobs[0]->dataMatrix.resize(1, numInputs);
-
-    weightBlobs[0]->diffMatrix.noalias() = topBlobs[0]->diffMatrix * bottomBlobs[0]->dataMatrix;
+    bottomBlobs[0]->diffMatrix.noalias() = weightBlobs[0]->dataMatrix.transpose() * topBlobs[0]->diffMatrix;
+    weightBlobs[0]->diffMatrix.noalias() = topBlobs[0]->diffMatrix * bottomBlobs[0]->dataMatrix.transpose();
 }
