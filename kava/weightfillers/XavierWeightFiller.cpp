@@ -1,5 +1,5 @@
 #include "XavierWeightFiller.h"
-#include "../utils/MathUtils.h"
+#include "../utils/RandomUtils.h"
 
 void XavierWeightFiller::fill(Blob *blob, int numInputs, int numOutputs)
 {
@@ -8,7 +8,7 @@ void XavierWeightFiller::fill(Blob *blob, int numInputs, int numOutputs)
 
     for(int i = 0; i < blob->count; i++)
     {
-        blob->data[i] = MathUtils::randomGaussian(0, std);
+        blob->data[i] = RandomUtils::getRandomGaussian(0, std);
     }
 
     blob->putDataIntoMatrix();
