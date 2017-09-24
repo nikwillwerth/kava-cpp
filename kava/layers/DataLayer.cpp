@@ -35,7 +35,7 @@ void DataLayer::setUp()
         topBlobs[0]->data[3] = 1;
     }
 
-    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(topBlobs[0]->data, width, height);
+    topBlobs[0]->putDataIntoMatrix();
 }
 
 void DataLayer::forward()

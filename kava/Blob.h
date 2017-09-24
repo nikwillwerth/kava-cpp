@@ -13,6 +13,8 @@ public:
     Blob(int channels, int height, int width);
     void reshape(int channels, int height, int width);
     void updateWeights(float learningRate);
+    void putDataIntoMatrix();
+    void putDiffIntoMatrix();
 
     std::string name;
     float *data;

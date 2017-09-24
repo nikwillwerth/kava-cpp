@@ -81,9 +81,9 @@ void SoftmaxWithLossLayer::forward()
     //(1-y)log(1-y')
     MatrixXf oneMinusLogOneMinus = oneMinusLabel.cwiseProduct(oneMinusPrediction.array().log().matrix());
 
-    float loss = (yLogYPrime + oneMinusLogOneMinus).sum() / -yLogYPrime.size();
-
-    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(new float { loss }, 1, 1);
+    //loss
+    topBlobs[0]->data[0] = (yLogYPrime + oneMinusLogOneMinus).sum() / -yLogYPrime.size();
+    topBlobs[0]->putDataIntoMatrix();
 }
 
 void SoftmaxWithLossLayer::backward()

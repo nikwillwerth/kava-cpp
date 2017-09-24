@@ -14,8 +14,8 @@ float MathUtils::randomGaussian(float mean, float std)
 
         do
         {
-            x = 2.0f * rand()/RAND_MAX - 1.0f;
-            y = 2.0f * rand()/RAND_MAX - 1.0f;
+            x = 2.0f * rand() / RAND_MAX - 1.0f;
+            y = 2.0f * rand() / RAND_MAX - 1.0f;
 
             r = (x * x) + (y * y);
         }

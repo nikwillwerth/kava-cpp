@@ -7,5 +7,5 @@ void ConstantWeightFiller::fill(Blob *blob, int numInputs, int numOutputs)
         blob->data[i] = 1;
     }
 
-    new (&blob->dataMatrix) Map<MatrixXf>(blob->data, blob->height, blob->width);
+    blob->putDataIntoMatrix();
 }

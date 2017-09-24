@@ -11,5 +11,5 @@ void XavierWeightFiller::fill(Blob *blob, int numInputs, int numOutputs)
         blob->data[i] = MathUtils::randomGaussian(0, std);
     }
 
-    new (&blob->dataMatrix) Map<MatrixXf>(blob->data, blob->height, blob->width);
+    blob->putDataIntoMatrix();
 }

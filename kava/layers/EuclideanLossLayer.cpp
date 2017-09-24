@@ -31,11 +31,8 @@ void EuclideanLossLayer::forward()
 
     MatrixXf square = diffMatrix.cwiseProduct(diffMatrix);
 
-    float loss = square.sum() / (2.0f * square.size());
-
-    topBlobs[0]->data[0] = loss;
-
-    new (&topBlobs[0]->dataMatrix) Map<MatrixXf>(topBlobs[0]->data, 1, 1);
+    topBlobs[0]->data[0] = square.sum() / (2.0f * square.size());
+    topBlobs[0]->putDataIntoMatrix();
 }
 
 void EuclideanLossLayer::backward()

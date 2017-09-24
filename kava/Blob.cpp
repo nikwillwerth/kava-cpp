@@ -39,6 +39,15 @@ void Blob::updateWeights(float learningRate)
 
     dataMatrix -= diffMatrix * learningRate;
 
-    //dataMatrix = &dataResult;
-    new (&dataMatrix) Map<MatrixXf>(dataMatrix.data(), dataMatrix.rows(), dataMatrix.cols());
+    putDataIntoMatrix();
+}
+
+void Blob::putDataIntoMatrix()
+{
+    new (&dataMatrix) Map<MatrixXf>(data, height, width);
+}
+
+void Blob::putDiffIntoMatrix()
+{
+    new (&diffMatrix) Map<MatrixXf>(diff, height, width);
 }

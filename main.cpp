@@ -13,9 +13,9 @@ int main()
 
     Kava kava = Kava();
 
-    kava.addLayer(new DataLayer("data", 2, 2, 1));
-    kava.addLayer(new DataLayer("label", 1, 10, 1));
-    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
+    //kava.addLayer(new DataLayer("data", 2, 2, 1));
+    //kava.addLayer(new DataLayer("label", 1, 10, 1));
+    kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
     //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
     kava.addLayer((new InnerProductLayer("fc1", "data", "fc1", 4096))->setWeightFiller(WeightFiller::Type::MSRA));
     kava.addLayer(new ReLULayer("relu1", "fc1", "fc1"));
