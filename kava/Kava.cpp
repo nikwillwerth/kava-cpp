@@ -71,7 +71,7 @@ void Kava::setUp()
 
     float learningRate = 0.001f;
 
-    int numIterations = 1000;
+    int numIterations = 0;
 
     const clock_t begin_time = clock();
 
