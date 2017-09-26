@@ -10,8 +10,12 @@ ConvolutionalLayer::ConvolutionalLayer(const std::string name, std::string botto
     weightBlobs     = std::vector<Blob *>();
 
     bottomBlobNames.push_back(bottomBlobName);
-    topBlobs.push_back(   new Blob(topBlobName));
-    weightBlobs.push_back(new Blob("weights"));
+    topBlobs.push_back(new Blob(topBlobName));
+
+    for(int i = 0; i < numOutputs; i++)
+    {
+        weightBlobs.push_back(new Blob("weights" + i));
+    }
 }
 
 void ConvolutionalLayer::setUp()
@@ -26,21 +30,60 @@ void ConvolutionalLayer::setUp()
 
     im2colMatrix = MatrixXf(outputLength, kernelLength);
 
-    weightBlobs[0]->reshape(1, kernelLength, numOutputs);
-    topBlobs[0]->reshape(   1, outputLength, numOutputs);
+    topBlobs[0]->reshape(numOutputs, outputHeight, outputWidth);
 
-    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], kernelLength, numOutputs);
+    for(int i = 0; i < numOutputs; i++)
+    {
+        weightBlobs[i]->reshape(1, kernelLength, numOutputs);
 
-    std::cout << im2colMatrix << std::endl;
-
-    im2colMatrix.block(0, 0, 3, 3) = bottomBlobs[0]->dataMatrix.block(0, 0, 3, 3);
-
-    std::cout << im2colMatrix << std::endl;
+        WeightFiller::getWeightFillerWithType(WeightFiller::Constant)->fill(weightBlobs[i], kernelLength, numOutputs);
+    }
 }
 
 void ConvolutionalLayer::forward()
 {
+    //im2col
+    int rowIndex = 0;
 
+    int kernelArea = kernelSize * kernelSize;
+
+    clock_t begin_time = clock();
+
+    for(int r = 0; r < outputHeight; r++)
+    {
+        for(int c = 0; c < outputWidth; c++)
+        {
+            for(int channel = 0; channel < bottomBlobs[0]->channels; channel++)
+            {
+                int row = ( r * stride);
+                int col = ((c*stride) + (channel * bottomBlobs[0]->width));
+
+                MatrixXf block = bottomBlobs[0]->dataMatrix.block(row, col, kernelSize, kernelSize).matrix();
+                block.resize(1, kernelArea);
+
+                int startColumn = channel * kernelArea;
+
+                im2colMatrix.block(rowIndex, startColumn, 1, kernelArea) = block;
+            }
+
+            rowIndex++;
+        }
+    }
+
+    float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
+
+    std::cout << "Total time for im2col:     " << numSeconds << std::endl;
+
+    begin_time = clock();
+
+    for(int i = 0; i < numOutputs; i++)
+    {
+        MatrixXf thisResult = im2colMatrix * weightBlobs[i]->dataMatrix;
+    }
+
+    numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
+
+    std::cout << "Total time for GEMM:     " << numSeconds << std::endl;
 }
 
 void ConvolutionalLayer::backward()

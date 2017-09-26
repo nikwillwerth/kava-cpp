@@ -44,10 +44,10 @@ void Blob::updateWeights(float learningRate)
 
 void Blob::putDataIntoMatrix()
 {
-    new (&dataMatrix) Map<MatrixXf>(data, height, width);
+    new (&dataMatrix) Map<MatrixXf>(data, height, width * channels);
 }
 
 void Blob::putDiffIntoMatrix()
 {
-    new (&diffMatrix) Map<MatrixXf>(diff, height, width);
+    new (&diffMatrix) Map<MatrixXf>(diff, height, width * channels);
 }

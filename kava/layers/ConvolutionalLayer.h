@@ -18,7 +18,7 @@ public:
 
 private:
     int numOutputs;
-    int kernelSize = 28;
+    int kernelSize = 3;
     int stride     = 1;
     int padding    = 0;
     int kernelLength;

@@ -22,7 +22,7 @@ void DataLayer::setUp()
     {
         for(int i = 0; i < topBlobs[0]->count; i++)
         {
-            topBlobs[0]->data[i] = 1;
+            topBlobs[0]->data[i] = i;
         }
     }
     else
