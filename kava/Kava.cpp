@@ -111,10 +111,10 @@ void Kava::setUp()
             }
         }
 
-        if((i % (numIterations  / 4)) == 0)
+       /* if((i % (numIterations  / 4)) == 0)
         {
             learningRate /= 2;
-        }
+        }*/
     }
 
     float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;

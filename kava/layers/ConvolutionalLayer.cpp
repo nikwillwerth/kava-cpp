@@ -21,36 +21,36 @@ void ConvolutionalLayer::setUp()
     outputWidth  = ((bottomBlobs[0]->width  - kernelSize + (2 * padding)) / stride) + 1;
     outputHeight = ((bottomBlobs[0]->height - kernelSize + (2 * padding)) / stride) + 1;
 
-    kernelLength = kernelSize  * kernelSize * bottomBlobs[0]->channels;
-    outputLength = outputWidth * outputHeight;
+    kernelArea   = kernelSize  * kernelSize;
+    kernelLength = kernelArea  * bottomBlobs[0]->channels;
+    outputLength = outputWidth * outputHeight * bottomBlobs[0]->channels;
 
     im2colMatrix = MatrixXf(outputLength, kernelLength);
 
     topBlobs[0]->reshape(numOutputs, outputHeight, outputWidth);
     weightBlobs[0]->reshape(1, kernelLength, numOutputs);
 
-    WeightFiller::getWeightFillerWithType(WeightFiller::Constant)->fill(weightBlobs[0], kernelLength, numOutputs);
+    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], kernelLength, numOutputs);
 }
 
 void ConvolutionalLayer::forward()
 {
-    //im2col
+    //im2col(I)
     int rowIndex = 0;
-
-    int kernelArea = kernelSize * kernelSize;
-
-    clock_t begin_time = clock();
 
     for(int r = 0; r < outputHeight; r++)
     {
+        int row = (r * stride);
+
         for(int c = 0; c < outputWidth; c++)
         {
+            int col = (c * stride);
+
             for(int channel = 0; channel < bottomBlobs[0]->channels; channel++)
             {
-                int row = ( r * stride);
-                int col = ((c * stride) + (channel * bottomBlobs[0]->width));
+                int colIndex = (col + (channel * bottomBlobs[0]->width));
 
-                MatrixXf block = bottomBlobs[0]->dataMatrix.block(row, col, kernelSize, kernelSize).matrix();
+                MatrixXf block = bottomBlobs[0]->dataMatrix.block(row, colIndex, kernelSize, kernelSize).matrix();
                 block.resize(1, kernelArea);
 
                 int startColumn = channel * kernelArea;
@@ -62,20 +62,33 @@ void ConvolutionalLayer::forward()
         }
     }
 
-    float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
-
-    std::cout << "Total time for im2col:     " << numSeconds << std::endl;
-
-    begin_time = clock();
-
-    MatrixXf thisResult = im2colMatrix * weightBlobs[0]->dataMatrix;
-
-    numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
-
-    std::cout << "Total time for GEMM:     " << numSeconds << std::endl;
+    //im2col(I) * W
+    topBlobs[0]->dataMatrix = im2colMatrix * weightBlobs[0]->dataMatrix;
+    topBlobs[0]->dataMatrix.resize(outputHeight, outputWidth * numOutputs);
 }
 
 void ConvolutionalLayer::backward()
 {
 
+}
+
+ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)
+{
+    this->kernelSize = kernelSize;
+
+    return this;
+}
+
+ConvolutionalLayer* ConvolutionalLayer::setStride(int stride)
+{
+    this->stride = stride;
+
+    return this;
+}
+
+ConvolutionalLayer* ConvolutionalLayer::setPadding(int padding)
+{
+    this->padding = padding;
+
+    return this;
 }

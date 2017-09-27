@@ -16,12 +16,17 @@ public:
     void forward();
     void backward();
 
+    ConvolutionalLayer* setKernelSize(int kernelSize);
+    ConvolutionalLayer* setStride(int stride);
+    ConvolutionalLayer* setPadding(int padding);
+
 private:
     int numOutputs;
     int kernelSize = 3;
     int stride     = 1;
     int padding    = 0;
     int kernelLength;
+    int kernelArea;
     int outputWidth;
     int outputHeight;
     int outputLength;
