@@ -69,7 +69,13 @@ void ConvolutionalLayer::forward()
 
 void ConvolutionalLayer::backward()
 {
+    topBlobs[0]->diffMatrix.resize(outputWidth * outputHeight, numOutputs);
 
+    //std::cout << im2colMatrix.rows() << "x" << im2colMatrix.cols() << std::endl;
+    //std::cout << topBlobs[0]->diffMatrix.rows() << "x" << topBlobs[0]->diffMatrix.cols() << std::endl;
+
+    //dW
+    weightBlobs[0]->diffMatrix = im2colMatrix.transpose() * topBlobs[0]->diffMatrix;
 }
 
 ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)
