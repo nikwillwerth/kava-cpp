@@ -10,12 +10,8 @@ ConvolutionalLayer::ConvolutionalLayer(const std::string name, std::string botto
     weightBlobs     = std::vector<Blob *>();
 
     bottomBlobNames.push_back(bottomBlobName);
-    topBlobs.push_back(new Blob(topBlobName));
-
-    for(int i = 0; i < numOutputs; i++)
-    {
-        weightBlobs.push_back(new Blob("weights" + i));
-    }
+    topBlobs.push_back(   new Blob(topBlobName));
+    weightBlobs.push_back(new Blob("weights"));
 }
 
 void ConvolutionalLayer::setUp()
@@ -31,13 +27,9 @@ void ConvolutionalLayer::setUp()
     im2colMatrix = MatrixXf(outputLength, kernelLength);
 
     topBlobs[0]->reshape(numOutputs, outputHeight, outputWidth);
+    weightBlobs[0]->reshape(1, kernelLength, numOutputs);
 
-    for(int i = 0; i < numOutputs; i++)
-    {
-        weightBlobs[i]->reshape(1, kernelLength, numOutputs);
-
-        WeightFiller::getWeightFillerWithType(WeightFiller::Constant)->fill(weightBlobs[i], kernelLength, numOutputs);
-    }
+    WeightFiller::getWeightFillerWithType(WeightFiller::Constant)->fill(weightBlobs[0], kernelLength, numOutputs);
 }
 
 void ConvolutionalLayer::forward()
@@ -56,7 +48,7 @@ void ConvolutionalLayer::forward()
             for(int channel = 0; channel < bottomBlobs[0]->channels; channel++)
             {
                 int row = ( r * stride);
-                int col = ((c*stride) + (channel * bottomBlobs[0]->width));
+                int col = ((c * stride) + (channel * bottomBlobs[0]->width));
 
                 MatrixXf block = bottomBlobs[0]->dataMatrix.block(row, col, kernelSize, kernelSize).matrix();
                 block.resize(1, kernelArea);
@@ -76,10 +68,7 @@ void ConvolutionalLayer::forward()
 
     begin_time = clock();
 
-    for(int i = 0; i < numOutputs; i++)
-    {
-        MatrixXf thisResult = im2colMatrix * weightBlobs[i]->dataMatrix;
-    }
+    MatrixXf thisResult = im2colMatrix * weightBlobs[0]->dataMatrix;
 
     numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
 
