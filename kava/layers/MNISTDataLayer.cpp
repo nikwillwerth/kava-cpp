@@ -42,9 +42,7 @@ void readImageFile(const std::string filename, std::vector<std::vector<MatrixXf>
         {
             int thisIndex = (index % numberOfRows) * numberOfRows + (index / numberOfRows);
 
-            //std::cout << thisIndex << std::endl;
-
-            thisMatrix.data()[index] = static_cast<float>(buffer[offset + thisIndex]);
+            thisMatrix.data()[index] = static_cast<float>(buffer[offset + thisIndex]) / 255.0f;
         }
 
         std::vector<MatrixXf> thisData = std::vector<MatrixXf>();
@@ -120,7 +118,7 @@ void MNISTDataLayer::forward()
     topBlobs[0]->dataMatrix = trainingData[currentTrainingIndex][0];
     topBlobs[1]->dataMatrix = trainingData[currentTrainingIndex][1];
 
-    //currentTrainingIndex++;
+    currentTrainingIndex++;
 
     if(currentTrainingIndex == trainingData.size())
     {

@@ -20,7 +20,6 @@ public:
     ConvolutionalLayer* setStride(int stride);
     ConvolutionalLayer* setPadding(int padding);
 
-private:
     int numOutputs;
     int kernelSize = 3;
     int stride     = 1;

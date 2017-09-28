@@ -1,6 +1,7 @@
 #include <iostream>
 #include "DataLayer.h"
 #include "../utils/MathUtils.h"
+#include "../utils/RandomUtils.h"
 
 DataLayer::DataLayer(std::string name, int width, int height, int channels)
 {
@@ -22,7 +23,7 @@ void DataLayer::setUp()
     {
         for(int i = 0; i < topBlobs[0]->count; i++)
         {
-            topBlobs[0]->data[i] = i;
+            topBlobs[0]->data[i] = RandomUtils::getRandomGaussian(0, 1);//i / (topBlobs[0]->count / channels);
         }
     }
     else

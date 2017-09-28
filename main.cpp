@@ -14,18 +14,15 @@ int main()
 
     Kava kava = Kava();
 
-    kava.addLayer(new DataLayer("data", 3, 3, 3));
-    kava.addLayer(new DataLayer("label", 1, 8, 1));
     //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
-    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
-    //kava.addLayer((new InnerProductLayer("fc1", "data", "fc1", 4096))->setWeightFiller(WeightFiller::Type::MSRA));
-    kava.addLayer(((new ConvolutionalLayer("conv1", "data", "conv1", 2))->setKernelSize(2))->setWeightFiller(WeightFiller::Type::Constant));
-    //kava.addLayer(new ReLULayer("relu1", "conv1", "conv1"));
-    //kava.addLayer((new InnerProductLayer("fc1", "conv1", "fc1", 16))->setWeightFiller(WeightFiller::Type::MSRA));
-    //kava.addLayer(new ReLULayer("relu4", "fc1", "fc1"));
-    //kava.addLayer((new InnerProductLayer("fc2", "fc1", "fc2", 10))->setWeightFiller(WeightFiller::Type::Xavier));
-    //kava.addLayer(new SoftmaxWithLossLayer("loss", "conv1", "label", "loss"));
-    kava.addLayer(new EuclideanLossLayer("loss", "conv1", "label", "loss"));
+    kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
+    kava.addLayer(((new ConvolutionalLayer("conv1", "data", "conv1", 16))->setKernelSize(11)->setStride(4))->setWeightFiller(WeightFiller::Type::MSRA));
+    kava.addLayer(new ReLULayer("relu1", "conv1", "conv1"));
+    //kava.addLayer(((new ConvolutionalLayer("conv2", "conv1", "conv2", 16))->setKernelSize(3))->setWeightFiller(WeightFiller::Type::MSRA));
+    //kava.addLayer(new ReLULayer("relu2", "conv2", "conv2"));
+    kava.addLayer((new InnerProductLayer("fc1", "conv1", "fc1", 10))->setWeightFiller(WeightFiller::Type::Xavier));
+    kava.addLayer(new SoftmaxWithLossLayer("loss", "fc1", "label", "loss"));
+    //kava.addLayer(new EuclideanLossLayer("loss", "conv1", "label", "loss"));
 
     kava.setUp();
 

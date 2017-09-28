@@ -78,46 +78,19 @@ void ConvolutionalLayer::forward()
 
 void ConvolutionalLayer::backward()
 {
-    /*int r = topBlobs[0]->diffMatrix.rows();
-    int c = topBlobs[0]->diffMatrix.cols();
+    topBlobs[0]->diffMatrix.resize(outputHeight, outputWidth * numOutputs);
 
-    MatrixXf dY = MatrixXf(r + 2, c + (2 * numOutputs));
-
-    std::cout << dY << std::endl;
+    MatrixXf dY = MatrixXf(outputLength, numOutputs);
 
     for(int i = 0; i < numOutputs; i++)
     {
-        dY.block(1, i * c, r, c) = topBlobs[0]->diffMatrix.block(0, i * c, r, c);
-    }
-
-    std::cout << dY << std::endl;*/
-
-    /*//topBlobs[0]->dataMatrix.resize(outputHeight, outputWidth * numOutputs);
-    //topBlobs[0]->diffMatrix.resize(numOutputs, outputLength);
-
-    //std::cout << topBlobs[0]->dataMatrix << std::endl << std::endl;
-    std::cout << topBlobs[0]->diffMatrix << std::endl << std::endl;
-
-    MatrixXf temp = MatrixXf(outputLength, numOutputs);
-
-    for(int i = 0; i < numOutputs; i++)
-    {
-        MatrixXf block = topBlobs[0]->diffMatrix.block((i * outputLength), 0, outputLength, 1).matrix();
+        MatrixXf block = topBlobs[0]->diffMatrix.block(0, i * outputWidth, outputHeight, outputWidth).matrix();
         block.resize(outputLength, 1);
 
-        temp.col(i) = block;
+        dY.block(0, i, outputLength, 1) = block;
     }
 
-    //std::cout << temp << std::endl << std::endl;
-
-    //std::cout << im2colMatrix.rows() << "x" << im2colMatrix.cols() << std::endl;
-    //std::cout << topBlobs[0]->diffMatrix.rows() << "x" << topBlobs[0]->diffMatrix.cols() << std::endl;
-
-    //dW
-    weightBlobs[0]->diffMatrix = im2colMatrix * temp;
-
-    //std::cout << weightBlobs[0]->diffMatrix << std::endl << std::endl;
-    //std::cout << weightBlobs[0]->dataMatrix << std::endl << std::endl;*/
+    weightBlobs[0]->diffMatrix = im2colMatrix.transpose() * dY;
 }
 
 ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)

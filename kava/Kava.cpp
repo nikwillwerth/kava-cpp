@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Kava.h"
 
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+
+#include "stb_image_write.h"
+#include "layers/ConvolutionalLayer.h"
+
 Kava::Kava()
 {
     layers = std::vector<Layer *>();
@@ -71,7 +76,7 @@ void Kava::setUp()
 
     float learningRate = 0.01f;
 
-    int numIterations = 1;
+    int numIterations = 6000000;
 
     const clock_t begin_time = clock();
 
@@ -90,7 +95,7 @@ void Kava::setUp()
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
 
-                if((i % 1) == 0)
+                if((i % 1000) == 0)
                 {
                     //std::cout << layers[layers.size() - 3]->topBlobs[0]->dataMatrix << std::endl;
                     std::cout << "\tloss: " << loss << std::endl << std::endl;
@@ -121,4 +126,47 @@ void Kava::setUp()
 
     std::cout << "Time per image for training: " << (numSeconds / numIterations) << std::endl;
     std::cout << "Total time for training:     " << numSeconds << std::endl;
+
+    ConvolutionalLayer *convLayer = (ConvolutionalLayer*)layers[layers.size() - 4];
+
+    int k  = convLayer->kernelSize;
+    int kk = k * k;
+
+    for(int i = 0; i < convLayer->numOutputs; i++)
+    {
+        MatrixXf weight = convLayer->weightBlobs[0]->dataMatrix.col(i).matrix();
+
+        for(int j = 0; j < convLayer->bottomBlobs[0]->channels; j++)
+        {
+            MatrixXf block = weight.block(j * kk, 0, kk, 1);
+
+            auto *imageData = new unsigned char[kk];
+
+            float min =  1e10;
+            float max = -1e10;
+
+            for(int i = 0; i < kk; i++)
+            {
+                int index = ((k * (i % k)) + (i /k));
+
+                float value = block.data()[index];
+
+                min = std::min(value, min);
+                max = std::max(value, max);
+            }
+
+            for(int i = 0; i < kk; i++)
+            {
+                int index = ((k * (i % k)) + (i /k));
+
+                float value = block.data()[index];
+
+                imageData[i] = (unsigned char)(((value - min) / (max - min)) * 255);
+            }
+
+            std::string filename = "weights/" + std::to_string(i) + "-" + std::to_string(j) + ".png";
+
+            stbi_write_png(filename.c_str(), k, k, 1, imageData, k);
+        }
+    }
 }

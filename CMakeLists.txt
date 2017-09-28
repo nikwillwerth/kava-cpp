@@ -3,7 +3,7 @@ project(kava_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-O3")
+set(CMAKE_CXX_FLAGS "-O3 -pthread")
 
 set(SOURCE_FILES
         kava/Eigen/src/Cholesky/LDLT.h
