@@ -28,15 +28,17 @@ void SoftmaxWithLossLayer::setUp()
 
 void SoftmaxWithLossLayer::forward()
 {
+    MatrixXf input = bottomBlobs[0]->dataMatrix;
+
     //softmax
-    float maxInputValue = bottomBlobs[0]->dataMatrix.maxCoeff();
+    float maxInputValue = input.maxCoeff();
 
-    MatrixXf maxInputValueMatrix = MatrixXf::Constant(bottomBlobs[0]->dataMatrix.rows(), bottomBlobs[0]->dataMatrix.cols(), maxInputValue);
+    MatrixXf maxInputValueMatrix = MatrixXf::Constant(input.rows(), input.cols(), maxInputValue);
 
-    bottomBlobs[0]->dataMatrix -= maxInputValueMatrix;
+    input -= maxInputValueMatrix;
 
     //regularization
-    MatrixXf inputExponential = bottomBlobs[0]->dataMatrix.array().exp();
+    MatrixXf inputExponential = input.array().exp();
 
     float inputExponentialSum = inputExponential.sum();
 

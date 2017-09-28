@@ -23,7 +23,7 @@ void ConvolutionalLayer::setUp()
 
     kernelArea   = kernelSize  * kernelSize;
     kernelLength = kernelArea  * bottomBlobs[0]->channels;
-    outputLength = outputWidth * outputHeight * bottomBlobs[0]->channels;
+    outputLength = outputWidth * outputHeight;
 
     im2colMatrix = MatrixXf(outputLength, kernelLength);
 
@@ -38,13 +38,13 @@ void ConvolutionalLayer::forward()
     //im2col(I)
     int rowIndex = 0;
 
-    for(int r = 0; r < outputHeight; r++)
+    for(int c = 0; c < outputWidth; c++)
     {
-        int row = (r * stride);
+        int col = (c * stride);
 
-        for(int c = 0; c < outputWidth; c++)
+        for(int r = 0; r < outputHeight; r++)
         {
-            int col = (c * stride);
+            int row = (r * stride);
 
             for(int channel = 0; channel < bottomBlobs[0]->channels; channel++)
             {
@@ -63,19 +63,47 @@ void ConvolutionalLayer::forward()
     }
 
     //im2col(I) * W
-    topBlobs[0]->dataMatrix = im2colMatrix * weightBlobs[0]->dataMatrix;
+    MatrixXf result = im2colMatrix * weightBlobs[0]->dataMatrix;
+
     topBlobs[0]->dataMatrix.resize(outputHeight, outputWidth * numOutputs);
+
+    for(int i = 0; i < numOutputs; i++)
+    {
+        MatrixXf block = result.col(i).matrix();
+        block.resize(outputHeight, outputWidth);
+
+        topBlobs[0]->dataMatrix.block(0, i * outputWidth, outputHeight, outputWidth) = block;
+    }
 }
 
 void ConvolutionalLayer::backward()
 {
-    topBlobs[0]->diffMatrix.resize(outputWidth * outputHeight, numOutputs);
+    /*//topBlobs[0]->dataMatrix.resize(outputHeight, outputWidth * numOutputs);
+    //topBlobs[0]->diffMatrix.resize(numOutputs, outputLength);
+
+    //std::cout << topBlobs[0]->dataMatrix << std::endl << std::endl;
+    std::cout << topBlobs[0]->diffMatrix << std::endl << std::endl;
+
+    MatrixXf temp = MatrixXf(outputLength, numOutputs);
+
+    for(int i = 0; i < numOutputs; i++)
+    {
+        MatrixXf block = topBlobs[0]->diffMatrix.block((i * outputLength), 0, outputLength, 1).matrix();
+        block.resize(outputLength, 1);
+
+        temp.col(i) = block;
+    }
+
+    //std::cout << temp << std::endl << std::endl;
 
     //std::cout << im2colMatrix.rows() << "x" << im2colMatrix.cols() << std::endl;
     //std::cout << topBlobs[0]->diffMatrix.rows() << "x" << topBlobs[0]->diffMatrix.cols() << std::endl;
 
     //dW
-    weightBlobs[0]->diffMatrix = im2colMatrix.transpose() * topBlobs[0]->diffMatrix;
+    weightBlobs[0]->diffMatrix = im2colMatrix * temp;
+
+    //std::cout << weightBlobs[0]->diffMatrix << std::endl << std::endl;
+    //std::cout << weightBlobs[0]->dataMatrix << std::endl << std::endl;*/
 }
 
 ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)

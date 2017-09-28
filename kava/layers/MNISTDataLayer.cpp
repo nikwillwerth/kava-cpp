@@ -120,7 +120,7 @@ void MNISTDataLayer::forward()
     topBlobs[0]->dataMatrix = trainingData[currentTrainingIndex][0];
     topBlobs[1]->dataMatrix = trainingData[currentTrainingIndex][1];
 
-    currentTrainingIndex++;
+    //currentTrainingIndex++;
 
     if(currentTrainingIndex == trainingData.size())
     {
