@@ -24,8 +24,8 @@ int main()
     //kava.addLayer((new InnerProductLayer("fc1", "conv1", "fc1", 16))->setWeightFiller(WeightFiller::Type::MSRA));
     //kava.addLayer(new ReLULayer("relu4", "fc1", "fc1"));
     //kava.addLayer((new InnerProductLayer("fc2", "fc1", "fc2", 10))->setWeightFiller(WeightFiller::Type::Xavier));
-    kava.addLayer(new SoftmaxWithLossLayer("loss", "conv1", "label", "loss"));
-    //kava.addLayer(new EuclideanLossLayer("loss", "fc2", "label", "loss"));
+    //kava.addLayer(new SoftmaxWithLossLayer("loss", "conv1", "label", "loss"));
+    kava.addLayer(new EuclideanLossLayer("loss", "conv1", "label", "loss"));
 
     kava.setUp();
 

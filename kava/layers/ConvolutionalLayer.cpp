@@ -78,6 +78,20 @@ void ConvolutionalLayer::forward()
 
 void ConvolutionalLayer::backward()
 {
+    /*int r = topBlobs[0]->diffMatrix.rows();
+    int c = topBlobs[0]->diffMatrix.cols();
+
+    MatrixXf dY = MatrixXf(r + 2, c + (2 * numOutputs));
+
+    std::cout << dY << std::endl;
+
+    for(int i = 0; i < numOutputs; i++)
+    {
+        dY.block(1, i * c, r, c) = topBlobs[0]->diffMatrix.block(0, i * c, r, c);
+    }
+
+    std::cout << dY << std::endl;*/
+
     /*//topBlobs[0]->dataMatrix.resize(outputHeight, outputWidth * numOutputs);
     //topBlobs[0]->diffMatrix.resize(numOutputs, outputLength);
 
