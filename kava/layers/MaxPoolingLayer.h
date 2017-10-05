@@ -20,7 +20,9 @@ public:
     int outputWidth;
     int outputHeight;
 
+private:
     MatrixXf maxIndices;
+    int poolSize;
 };
 
 #endif //KAVA_CPP_MAXPOOLINGLAYER_H

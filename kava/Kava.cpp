@@ -2,8 +2,10 @@
 #include "Kava.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
+#define STB_IMAGE_RESIZE_IMPLEMENTATION
 
 #include "stb_image_write.h"
+#include "stb_image_resize.h"
 #include "layers/ConvolutionalLayer.h"
 
 Kava::Kava()
@@ -113,7 +115,20 @@ void saveLayer(std::vector<Layer *> layers, int layerIndex)
 
                 std::string filename = "weights/" + convLayer->name + "-" + std::to_string(i) + "-" + std::to_string(j) + ".png";
 
-                stbi_write_png(filename.c_str(), k, k, 1, imageData, k);
+
+                auto *resizedImageData = new unsigned char[kk * 100];
+
+                int newSize = (k * 10);
+
+                stbir_resize_uint8_generic(imageData, k, k, k, resizedImageData, newSize, newSize, newSize, 1,
+                                           0,
+                                           STBIR_TYPE_UINT8,
+                                           STBIR_EDGE_ZERO,
+                                           STBIR_FILTER_BOX,
+                                           STBIR_COLORSPACE_SRGB,
+                                           nullptr);
+
+                stbi_write_png(filename.c_str(), newSize, newSize, 1, resizedImageData, newSize);
             }
         }
     }
@@ -157,28 +172,44 @@ void Kava::setUp()
         layer->setUp();
     }
 
-    float learningRate = 0.01f;
+    float learningRate = 0.0000f;
 
-    int numIterations = 6000;
+    int numIterations = 100;
 
-    const clock_t begin_time = clock();
+    const clock_t startTime = clock();
 
-    for(int i = 0; i < numIterations; i++)
+    std::vector<float> forwardTimes, backwardTimes;
+    forwardTimes.resize(layers.size(), 0);
+    backwardTimes.resize(layers.size(), 0);
+
+    for(int i = 1; i <= numIterations; i++)
     {
         for(long j = 0; j < layers.size(); j++)
         {
+            const clock_t thisStartTime = clock();
+
             layers[j]->forward();
+
+            float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
+
+            forwardTimes[j] += numSeconds;
         }
 
         for(long j = (layers.size() - 1); j > 0; j--)
         {
+            const clock_t thisStartTime = clock();
+
             layers[j]->backward();
+
+            float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
+
+            backwardTimes[j] += numSeconds;
 
             if(j == (layers.size() - 1))
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
 
-                if((i % 600) == 0)
+                if((i % 1) == 0)
                 {
 
                     std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
@@ -195,10 +226,16 @@ void Kava::setUp()
 
         for(long j = 0; j < layers.size(); j++)
         {
+            const clock_t thisStartTime = clock();
+
             if(layers[j]->weightBlobs.size() > 0)
             {
                 layers[j]->weightBlobs[0]->updateWeights(learningRate);
             }
+
+            float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
+
+            backwardTimes[j] += numSeconds;
         }
 
        /* if((i % (numIterations  / 4)) == 0)
@@ -208,12 +245,40 @@ void Kava::setUp()
     }
 
     saveLayer(layers, 1);
-    saveLayer(layers, 4);
+    saveLayer(layers, 3);
 
-    float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
+    float numSeconds = float(clock() - startTime) / CLOCKS_PER_SEC;
 
     std::cout << "Time per image for training: " << (numSeconds / numIterations) << std::endl;
     std::cout << "Total time for training:     " << numSeconds << std::endl;
 
 
+
+    float forwardSum = 0;
+
+    for(int i = 0; i < layers.size(); i++)
+    {
+        forwardSum += (forwardTimes[i] / numIterations);
+    }
+
+    std::cout << std::endl << "Forward: " << forwardSum << std::endl;
+
+    for(int i = 0; i < layers.size(); i++)
+    {
+        std::cout << "\t" << layers[i]->name << " - " << (forwardTimes[i] / numIterations) << std::endl;
+    }
+
+    float backwardSum = 0;
+
+    for(int i = 0; i < layers.size(); i++)
+    {
+        backwardSum += (backwardTimes[i] / numIterations);
+    }
+
+    std::cout << std::endl << "Backward: " << backwardSum << std::endl;
+
+    for(int i = 0; i < layers.size(); i++)
+    {
+        std::cout << "\t" << layers[i]->name << " - " << (backwardTimes[i] / numIterations) << std::endl;
+    }
 }

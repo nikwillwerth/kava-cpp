@@ -20,6 +20,8 @@ void MaxPoolingLayer::setUp()
 
     std::cout << "\t" << bottomBlobs[0]->channels << "x" << outputHeight << "x" << outputWidth << std::endl;
 
+    poolSize = (kernelSize * kernelSize);
+
     maxIndices = MatrixXf(bottomBlobs[0]->height, (bottomBlobs[0]->width * bottomBlobs[0]->channels));
 
     topBlobs[0]->reshape(bottomBlobs[0]->channels, outputHeight, outputWidth);
@@ -85,9 +87,9 @@ void MaxPoolingLayer::backward()
                 int   maxIndex = (int)maxIndices.block(r, c + (channel * outputWidth), 1, 1).maxCoeff();
                 float diff     = topBlobs[0]->diffMatrix.block(r, c + (channel * outputWidth), 1, 1).maxCoeff();
 
-                float *diffArray = new float[kernelSize * kernelSize];
+                float *diffArray = new float[poolSize];
 
-                for(int i = 0; i < (kernelSize * kernelSize); i++)
+                for(int i = 0; i < poolSize; i++)
                 {
                     if(i != maxIndex)
                     {
@@ -99,9 +101,7 @@ void MaxPoolingLayer::backward()
                     }
                 }
 
-                MatrixXf diffMatrix = MatrixXf(kernelSize, kernelSize);
-
-                new (&diffMatrix) Map<MatrixXf>(diffArray, kernelSize, kernelSize);
+                MatrixXf diffMatrix = Map<MatrixXf>(diffArray, kernelSize, kernelSize);
 
                 bottomBlobs[0]->diffMatrix.block(row, col + depth, kernelSize, kernelSize) = diffMatrix;
             }
