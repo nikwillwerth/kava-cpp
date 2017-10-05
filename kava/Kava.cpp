@@ -36,6 +36,89 @@ Kava* Kava::addLayer(Layer *layer)
     return this;
 }
 
+void saveLayer(std::vector<Layer *> layers, int layerIndex)
+{
+    ConvolutionalLayer *convLayer = (ConvolutionalLayer*)layers[layerIndex];
+
+    int k  = convLayer->kernelSize;
+    int kk = k * k;
+
+    if(kk == 1)
+    {
+        const int oneXoneResizeWidth = 28;
+        const int oneXoneResizeSize  = oneXoneResizeWidth * oneXoneResizeWidth;
+
+        auto *imageData = new unsigned char[oneXoneResizeSize];
+
+        float min =  1e10;
+        float max = -1e10;
+
+        for(int i = 0; i < convLayer->numOutputs; i++)
+        {
+            float value = convLayer->weightBlobs[0]->dataMatrix.data()[i];
+
+            min = std::min(value, min);
+            max = std::max(value, max);
+        }
+
+        for(int i = 0; i < convLayer->numOutputs; i++)
+        {
+            float value = convLayer->weightBlobs[0]->dataMatrix.data()[i];
+
+            auto scaledValue = (unsigned char)(((value - min) / (max - min)) * 255);
+
+            for(int j = 0; j < oneXoneResizeSize; j++)
+            {
+                std::fill(imageData, (imageData + oneXoneResizeSize), scaledValue);
+            }
+
+            std::string filename = "weights/" + convLayer->name + "-" + std::to_string(i) + ".png";
+
+            stbi_write_png(filename.c_str(), oneXoneResizeWidth, oneXoneResizeWidth, 1, imageData, oneXoneResizeWidth);
+        }
+    }
+    else
+    {
+        for(int i = 0; i < convLayer->numOutputs; i++)
+        {
+            MatrixXf weight = convLayer->weightBlobs[0]->dataMatrix.col(i).matrix();
+
+            for(int j = 0; j < convLayer->bottomBlobs[0]->channels; j++)
+            {
+                MatrixXf block = weight.block(j * kk, 0, kk, 1);
+
+                auto *imageData = new unsigned char[kk];
+
+                float min =  1e10;
+                float max = -1e10;
+
+                for(int i = 0; i < kk; i++)
+                {
+                    int index = ((k * (i % k)) + (i /k));
+
+                    float value = block.data()[index];
+
+                    min = std::min(value, min);
+                    max = std::max(value, max);
+                }
+
+                for(int i = 0; i < kk; i++)
+                {
+                    int index = ((k * (i % k)) + (i /k));
+
+                    float value = block.data()[index];
+
+                    imageData[i] = (unsigned char)(((value - min) / (max - min)) * 255);
+                }
+
+                std::string filename = "weights/" + convLayer->name + "-" + std::to_string(i) + "-" + std::to_string(j) + ".png";
+
+                stbi_write_png(filename.c_str(), k, k, 1, imageData, k);
+            }
+        }
+    }
+}
+
 void Kava::setUp()
 {
     for(int layerIndex = 0; layerIndex < layers.size(); layerIndex++)
@@ -76,7 +159,7 @@ void Kava::setUp()
 
     float learningRate = 0.01f;
 
-    int numIterations = 6000000;
+    int numIterations = 6000;
 
     const clock_t begin_time = clock();
 
@@ -95,8 +178,10 @@ void Kava::setUp()
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
 
-                if((i % 1000) == 0)
+                if((i % 600) == 0)
                 {
+
+                    std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
                     //std::cout << layers[layers.size() - 3]->topBlobs[0]->dataMatrix << std::endl;
                     std::cout << "\tloss: " << loss << std::endl << std::endl;
                 }
@@ -122,51 +207,13 @@ void Kava::setUp()
         }*/
     }
 
+    saveLayer(layers, 1);
+    saveLayer(layers, 4);
+
     float numSeconds = float(clock () - begin_time) / CLOCKS_PER_SEC;
 
     std::cout << "Time per image for training: " << (numSeconds / numIterations) << std::endl;
     std::cout << "Total time for training:     " << numSeconds << std::endl;
 
-    ConvolutionalLayer *convLayer = (ConvolutionalLayer*)layers[layers.size() - 4];
 
-    int k  = convLayer->kernelSize;
-    int kk = k * k;
-
-    for(int i = 0; i < convLayer->numOutputs; i++)
-    {
-        MatrixXf weight = convLayer->weightBlobs[0]->dataMatrix.col(i).matrix();
-
-        for(int j = 0; j < convLayer->bottomBlobs[0]->channels; j++)
-        {
-            MatrixXf block = weight.block(j * kk, 0, kk, 1);
-
-            auto *imageData = new unsigned char[kk];
-
-            float min =  1e10;
-            float max = -1e10;
-
-            for(int i = 0; i < kk; i++)
-            {
-                int index = ((k * (i % k)) + (i /k));
-
-                float value = block.data()[index];
-
-                min = std::min(value, min);
-                max = std::max(value, max);
-            }
-
-            for(int i = 0; i < kk; i++)
-            {
-                int index = ((k * (i % k)) + (i /k));
-
-                float value = block.data()[index];
-
-                imageData[i] = (unsigned char)(((value - min) / (max - min)) * 255);
-            }
-
-            std::string filename = "weights/" + std::to_string(i) + "-" + std::to_string(j) + ".png";
-
-            stbi_write_png(filename.c_str(), k, k, 1, imageData, k);
-        }
-    }
 }

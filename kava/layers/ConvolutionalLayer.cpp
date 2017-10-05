@@ -21,6 +21,8 @@ void ConvolutionalLayer::setUp()
     outputWidth  = ((bottomBlobs[0]->width  - kernelSize + (2 * padding)) / stride) + 1;
     outputHeight = ((bottomBlobs[0]->height - kernelSize + (2 * padding)) / stride) + 1;
 
+    std::cout << "\t" << numOutputs << "x" << outputHeight << "x" << outputWidth << std::endl;
+
     kernelArea   = kernelSize  * kernelSize;
     kernelLength = kernelArea  * bottomBlobs[0]->channels;
     outputLength = outputWidth * outputHeight;

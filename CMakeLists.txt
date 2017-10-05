@@ -3,8 +3,6 @@ project(kava_cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_FLAGS "-O3 -pthread")
-
 set(SOURCE_FILES
         kava/Eigen/src/Cholesky/LDLT.h
         kava/Eigen/src/Cholesky/LLT.h
@@ -277,16 +275,43 @@ set(SOURCE_FILES
         kava/Eigen/src/SVD/SVDBase.h
         kava/Eigen/src/SVD/UpperBidiagonalization.h
         kava/Eigen/src/UmfPackSupport/UmfPackSupport.h
+        kava/layers/ConvolutionalLayer.cpp
+        kava/layers/ConvolutionalLayer.h
         kava/layers/DataLayer.cpp
         kava/layers/DataLayer.h
+        kava/layers/EuclideanLossLayer.cpp
+        kava/layers/EuclideanLossLayer.h
         kava/layers/InnerProductLayer.cpp
         kava/layers/InnerProductLayer.h
         kava/layers/Layer.cpp
         kava/layers/Layer.h
+        kava/layers/MNISTDataLayer.cpp
+        kava/layers/MNISTDataLayer.h
+        kava/layers/ReLULayer.cpp
+        kava/layers/ReLULayer.h
+        kava/layers/SoftmaxWithLossLayer.cpp
+        kava/layers/SoftmaxWithLossLayer.h
+        kava/utils/FileUtils.cpp
+        kava/utils/FileUtils.h
+        kava/utils/MathUtils.cpp
+        kava/utils/MathUtils.h
+        kava/utils/RandomUtils.cpp
+        kava/utils/RandomUtils.h
+        kava/weightfillers/ConstantWeightFiller.cpp
+        kava/weightfillers/ConstantWeightFiller.h
+        kava/weightfillers/GaussianWeightFiller.cpp
+        kava/weightfillers/GaussianWeightFiller.h
+        kava/weightfillers/MSRAWeightFiller.cpp
+        kava/weightfillers/MSRAWeightFiller.h
+        kava/weightfillers/WeightFiller.cpp
+        kava/weightfillers/WeightFiller.h
+        kava/weightfillers/XavierWeightFiller.cpp
+        kava/weightfillers/XavierWeightFiller.h
         kava/Blob.cpp
         kava/Blob.h
         kava/Kava.cpp
         kava/Kava.h
-        main.cpp kava/layers/EuclideanLossLayer.cpp kava/layers/EuclideanLossLayer.h kava/layers/MNISTDataLayer.cpp kava/layers/MNISTDataLayer.h kava/layers/SoftmaxWithLossLayer.cpp kava/layers/SoftmaxWithLossLayer.h kava/layers/ReLULayer.cpp kava/layers/ReLULayer.h kava/utils/FileUtils.cpp kava/utils/FileUtils.h kava/utils/MathUtils.cpp kava/utils/MathUtils.h kava/weightfillers/WeightFiller.cpp kava/weightfillers/WeightFiller.h kava/weightfillers/ConstantWeightFiller.cpp kava/weightfillers/ConstantWeightFiller.h kava/weightfillers/MSRAWeightFiller.cpp kava/weightfillers/MSRAWeightFiller.h kava/weightfillers/XavierWeightFiller.cpp kava/weightfillers/XavierWeightFiller.h kava/weightfillers/GaussianWeightFiller.cpp kava/weightfillers/GaussianWeightFiller.h kava/utils/RandomUtils.cpp kava/utils/RandomUtils.h kava/layers/ConvolutionalLayer.cpp kava/layers/ConvolutionalLayer.h)
+        kava/stb_image_write.h
+        main.cpp kava/layers/MaxPoolingLayer.cpp kava/layers/MaxPoolingLayer.h)
 
-add_executable(kava_cpp ${SOURCE_FILES} ${SOURCES})
+add_executable(kava_cpp ${SOURCE_FILES})

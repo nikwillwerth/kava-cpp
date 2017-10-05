@@ -37,11 +37,7 @@ void Blob::updateWeights(float learningRate)
 {
     diffMatrix.resize(dataMatrix.rows(), dataMatrix.cols());
 
-    //std::cout << diffMatrix << std::endl;
-
     dataMatrix -= diffMatrix * learningRate;
-
-    putDataIntoMatrix();
 }
 
 void Blob::putDataIntoMatrix()
