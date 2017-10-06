@@ -23,6 +23,7 @@ void MaxPoolingLayer::setUp()
     poolSize = (kernelSize * kernelSize);
 
     maxIndices = MatrixXf(bottomBlobs[0]->height, (bottomBlobs[0]->width * bottomBlobs[0]->channels));
+    diffMatrix = MatrixXf(kernelSize, kernelSize); //TODO if training only
 
     topBlobs[0]->reshape(bottomBlobs[0]->channels, outputHeight, outputWidth);
 }
@@ -87,21 +88,17 @@ void MaxPoolingLayer::backward()
                 int   maxIndex = (int)maxIndices.block(r, c + (channel * outputWidth), 1, 1).maxCoeff();
                 float diff     = topBlobs[0]->diffMatrix.block(r, c + (channel * outputWidth), 1, 1).maxCoeff();
 
-                float *diffArray = new float[poolSize];
-
                 for(int i = 0; i < poolSize; i++)
                 {
                     if(i != maxIndex)
                     {
-                        diffArray[i] = 0;
+                        diffMatrix.data()[i] = 0;
                     }
                     else
                     {
-                        diffArray[i] = diff;
+                        diffMatrix.data()[i] = diff;
                     }
                 }
-
-                MatrixXf diffMatrix = Map<MatrixXf>(diffArray, kernelSize, kernelSize);
 
                 bottomBlobs[0]->diffMatrix.block(row, col + depth, kernelSize, kernelSize) = diffMatrix;
             }
