@@ -15,8 +15,8 @@ int main()
 
     Kava kava = Kava();
 
-    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
-    kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
+    kava.addLayer(new MNISTDataLayer("data", "data", "label", "/Users/nik/CLionProjects/kava-cpp/data/mnist/"));
+    //kava.addLayer(new MNISTDataLayer("data", "data", "label", "/home/nik/Desktop/kava-cpp/data/mnist/"));
     kava.addLayer(((new ConvolutionalLayer("conv1", "data", "conv1", 20))->setKernelSize(5)->setStride(1))->setWeightFiller(WeightFiller::Type::Xavier));
     //kava.addLayer(new ReLULayer("relu1", "conv1", "conv1"));
     kava.addLayer(new MaxPoolingLayer("pool1", "conv1", "pool1"));

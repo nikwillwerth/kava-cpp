@@ -172,9 +172,9 @@ void Kava::setUp()
         layer->setUp();
     }
 
-    float learningRate = 0.0000f;
+    float learningRate = 0.001f;
 
-    int numIterations = 100;
+    int numIterations = 6000;
 
     const clock_t startTime = clock();
 

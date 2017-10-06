@@ -22,6 +22,7 @@ public:
 
 private:
     MatrixXf maxIndices;
+    MatrixXf diffMatrix;
     int poolSize;
 };
 
