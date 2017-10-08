@@ -29,6 +29,7 @@ int main()
     kava.addLayer(new SoftmaxWithLossLayer("loss", "ip2", "label", "loss"));
 
     kava.setUp();
+    kava.train(nullptr);
 
     //int temp;
 

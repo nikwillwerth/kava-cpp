@@ -171,112 +171,116 @@ void Kava::setUp()
 
         layer->setUp();
     }
+}
 
-    float learningRate = 0.001f;
-
-    int numIterations = 6000;
-
+void Kava::train(std::function<void (const float)> lossCallback)
+{
+    int numIterations = 60000;
+    
     const clock_t startTime = clock();
-
+    
     std::vector<float> forwardTimes, backwardTimes;
     forwardTimes.resize(layers.size(), 0);
     backwardTimes.resize(layers.size(), 0);
-
+    
     for(int i = 1; i <= numIterations; i++)
     {
         for(long j = 0; j < layers.size(); j++)
         {
             const clock_t thisStartTime = clock();
-
+            
             layers[j]->forward();
-
+            
             float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
-
+            
             forwardTimes[j] += numSeconds;
         }
-
+        
         for(long j = (layers.size() - 1); j > 0; j--)
         {
             const clock_t thisStartTime = clock();
-
+            
             layers[j]->backward();
-
+            
             float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
-
+            
             backwardTimes[j] += numSeconds;
-
+            
             if(j == (layers.size() - 1))
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
-
-                if((i % 1) == 0)
+                
+                if((i % 600) == 0)
                 {
-
-                    std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
+                    if(lossCallback != nullptr)
+                    {
+                        lossCallback(loss);
+                    }
+                    //std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
                     //std::cout << layers[layers.size() - 3]->topBlobs[0]->dataMatrix << std::endl;
-                    std::cout << "\tloss: " << loss << std::endl << std::endl;
+                    //std::cout << "\tloss: " << loss << std::endl << std::endl;
                 }
-
+                
                 if(isnan(loss) || isinf(loss))
                 {
                     exit(-1);
                 }
             }
         }
-
+        
         for(long j = 0; j < layers.size(); j++)
         {
             const clock_t thisStartTime = clock();
-
+            
             if(layers[j]->weightBlobs.size() > 0)
             {
                 layers[j]->weightBlobs[0]->updateWeights(learningRate);
             }
-
+            
             float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
-
+            
             backwardTimes[j] += numSeconds;
         }
-
-       /* if((i % (numIterations  / 4)) == 0)
-        {
-            learningRate /= 2;
-        }*/
+        
+        /* if((i % (numIterations  / 4)) == 0)
+         {
+         learningRate /= 2;
+         }*/
     }
-
+    
     saveLayer(layers, 1);
     saveLayer(layers, 3);
-
+    
     float numSeconds = float(clock() - startTime) / CLOCKS_PER_SEC;
-
+    
     std::cout << "Time per image for training: " << (numSeconds / numIterations) << std::endl;
     std::cout << "Total time for training:     " << numSeconds << std::endl;
-
-
-
+    
+    
+    
     float forwardSum = 0;
-
+    
     for(int i = 0; i < layers.size(); i++)
     {
         forwardSum += (forwardTimes[i] / numIterations);
     }
-
+    
     std::cout << std::endl << "Forward: " << forwardSum << std::endl;
-
+    
     for(int i = 0; i < layers.size(); i++)
     {
         std::cout << "\t" << layers[i]->name << " - " << (forwardTimes[i] / numIterations) << std::endl;
     }
-
+    
     float backwardSum = 0;
-
+    
     for(int i = 0; i < layers.size(); i++)
     {
         backwardSum += (backwardTimes[i] / numIterations);
     }
-
+    
     std::cout << std::endl << "Backward: " << backwardSum << std::endl;
-
+    
     for(int i = 0; i < layers.size(); i++)
     {
         std::cout << "\t" << layers[i]->name << " - " << (backwardTimes[i] / numIterations) << std::endl;
