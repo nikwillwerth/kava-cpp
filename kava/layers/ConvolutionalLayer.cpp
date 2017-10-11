@@ -92,7 +92,8 @@ void ConvolutionalLayer::backward()
         dY.block(0, i, outputLength, 1) = block;
     }
 
-    weightBlobs[0]->diffMatrix = im2colMatrix.transpose() * dY;
+    weightBlobs[0]->diffMatrix.noalias() = im2colMatrix.transpose() * dY;
+    bottomBlobs[0]->diffMatrix.noalias() = dY * weightBlobs[0]->dataMatrix.transpose();
 }
 
 ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)

@@ -18,7 +18,7 @@ private:
     std::map<std::string, Layer *> nameToLayerMap;
     std::map<std::string, Blob *> nameToBlobMap;
     
-    float learningRate = 0.001f;
+    float learningRate = 0.0001f;
 };
 
 #endif //KAVA_KAVA_H

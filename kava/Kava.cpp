@@ -175,7 +175,7 @@ void Kava::setUp()
 
 void Kava::train(std::function<void (const float)> lossCallback)
 {
-    int numIterations = 60000;
+    int numIterations = 6000;
     
     const clock_t startTime = clock();
     
@@ -210,15 +210,15 @@ void Kava::train(std::function<void (const float)> lossCallback)
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
                 
-                if((i % 600) == 0)
+                if((i % 1) == 0)
                 {
                     if(lossCallback != nullptr)
                     {
                         lossCallback(loss);
                     }
-                    //std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
+                    std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
                     //std::cout << layers[layers.size() - 3]->topBlobs[0]->dataMatrix << std::endl;
-                    //std::cout << "\tloss: " << loss << std::endl << std::endl;
+                    std::cout << "\tloss: " << loss << std::endl << std::endl;
                 }
                 
                 if(isnan(loss) || isinf(loss))
