@@ -314,6 +314,6 @@ set(SOURCE_FILES
         kava/Kava.cpp
         kava/Kava.h
         kava/stb_image_write.h
-        main.cpp kava/layers/MaxPoolingLayer.cpp kava/layers/MaxPoolingLayer.h)
+        main.cpp kava/layers/MaxPoolingLayer.cpp kava/layers/MaxPoolingLayer.h kava/layers/AveragePoolingLayer.cpp kava/layers/AveragePoolingLayer.h)
 
 add_executable(kava_cpp ${SOURCE_FILES})

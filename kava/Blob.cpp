@@ -31,13 +31,17 @@ void Blob::reshape(const int channels, const int height, const int width)
 
     dataMatrix = MatrixXf(count, 1);
     diffMatrix = MatrixXf(count, 1);
+
+    diffMatrix.fill(0);
 }
 
 void Blob::updateWeights(float learningRate)
 {
     diffMatrix.resize(dataMatrix.rows(), dataMatrix.cols());
 
-    dataMatrix -= diffMatrix * learningRate;
+    dataMatrix -= (diffMatrix * learningRate);
+
+    //diffMatrix.fill(0);
 }
 
 void Blob::putDataIntoMatrix()

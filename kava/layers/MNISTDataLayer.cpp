@@ -43,6 +43,8 @@ void readImageFile(const std::string filename, std::vector<std::vector<MatrixXf>
             int thisIndex = (index % numberOfRows) * numberOfRows + (index / numberOfRows);
 
             thisMatrix.data()[index] = static_cast<float>(buffer[offset + thisIndex]) / 255.0f;
+            //thisMatrix.data()[index + (numberOfRows * numberOfCols)] = static_cast<float>(buffer[offset + thisIndex]) / 255.0f;
+            //thisMatrix.data()[(((index % numberOfRows) * numberOfRows) + (index / numberOfRows)) + imageSize] = static_cast<float>(buffer[offset + thisIndex]) / 255.0f;
         }
 
         std::vector<MatrixXf> thisData = std::vector<MatrixXf>();

@@ -11,6 +11,7 @@ class RandomUtils
 {
 public:
     static float getRandomGaussian(float mean, float std);
+    static float getRandomUniform(float mean, float std);
 };
 
 #endif //KAVA_CPP_RANDOMUTILS_H

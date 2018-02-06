@@ -23,7 +23,6 @@ public:
 private:
     MatrixXf maxIndices;
     MatrixXf diffMatrix;
-    int poolSize;
 };
 
 #endif //KAVA_CPP_MAXPOOLINGLAYER_H

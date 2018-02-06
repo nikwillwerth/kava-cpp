@@ -90,3 +90,5 @@ fabric.properties
 
 cmake-build-debug/
 /data/mnist/*-ubyte
+
+.DS_Store

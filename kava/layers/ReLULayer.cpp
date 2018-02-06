@@ -36,12 +36,12 @@ void ReLULayer::forward()
 {
     reluMask = (bottomBlobs[0]->dataMatrix.array() >= 0.0f).matrix().cast<float>();
 
-    topBlobs[0]->dataMatrix.noalias() = bottomBlobs[0]->dataMatrix.cwiseProduct(reluMask);
+    topBlobs[0]->dataMatrix = bottomBlobs[0]->dataMatrix.cwiseProduct(reluMask);
 }
 
 void ReLULayer::backward()
 {
     reluMask.resize(topBlobs[0]->diffMatrix.rows(), topBlobs[0]->diffMatrix.cols());
 
-    bottomBlobs[0]->diffMatrix.noalias() = topBlobs[0]->diffMatrix.cwiseProduct(reluMask);
+    bottomBlobs[0]->diffMatrix = topBlobs[0]->diffMatrix.cwiseProduct(reluMask);
 }

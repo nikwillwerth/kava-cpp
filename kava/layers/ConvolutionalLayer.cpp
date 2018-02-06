@@ -32,7 +32,10 @@ void ConvolutionalLayer::setUp()
     topBlobs[0]->reshape(numOutputs, outputHeight, outputWidth);
     weightBlobs[0]->reshape(1, kernelLength, numOutputs);
 
-    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], kernelLength, numOutputs);
+    int fanIn  = (bottomBlobs[0]->channels * kernelSize * kernelSize);
+    int fanOut = (numOutputs * kernelSize * kernelSize);
+
+    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], fanIn, fanOut);
 }
 
 void ConvolutionalLayer::forward()
@@ -88,12 +91,11 @@ void ConvolutionalLayer::backward()
     {
         MatrixXf block = topBlobs[0]->diffMatrix.block(0, i * outputWidth, outputHeight, outputWidth).matrix();
         block.resize(outputLength, 1);
-
         dY.block(0, i, outputLength, 1) = block;
     }
 
-    weightBlobs[0]->diffMatrix.noalias() = im2colMatrix.transpose() * dY;
     bottomBlobs[0]->diffMatrix.noalias() = dY * weightBlobs[0]->dataMatrix.transpose();
+    weightBlobs[0]->diffMatrix.noalias() = im2colMatrix.transpose() * dY;
 }
 
 ConvolutionalLayer* ConvolutionalLayer::setKernelSize(int kernelSize)

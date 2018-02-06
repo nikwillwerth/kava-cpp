@@ -2,7 +2,7 @@
 #include "SoftmaxWithLossLayer.h"
 
 #define EPS 1e-6
-#define ONE_MINUS_EPS 1-1e-6
+#define ONE_MINUS_EPS 1 - EPS
 
 SoftmaxWithLossLayer::SoftmaxWithLossLayer(std::string name, std::string bottomBlobOneName, std::string bottomBlobTwoName, std::string topBlobName)
 {
@@ -57,11 +57,11 @@ void SoftmaxWithLossLayer::forward()
 
     for(int i = 0; i < logLossMatrix.size(); i++)
     {
-        if(logLossMatrix.data()[i] != 0)
+        if(logLossMatrix.data()[i] > EPS)
         {
             logLossMatrix.data()[i] = logf(logLossMatrix.data()[i]);
         }
-        else if(logLossMatrix.data()[i] == EPS)
+        else
         {
             logLossMatrix.data()[i] = 0;
         }
@@ -86,6 +86,23 @@ void SoftmaxWithLossLayer::forward()
     //loss
     topBlobs[0]->data[0] = (yLogYPrime + oneMinusLogOneMinus).sum() / -yLogYPrime.size();
     topBlobs[0]->putDataIntoMatrix();
+
+    /*std::cout << input << std::endl;
+
+    if(((topBlobs[0]->data[0] >= (2.76178 - 0.001)) && (topBlobs[0]->data[0] <= (2.76178 + 0.001))) || isnan(topBlobs[0]->data[0]) || ((topBlobs[0]->data[0] >= (1.38023 - 0.001)) && (topBlobs[0]->data[0] <= (1.38023 + 0.001))))
+    {
+        std::cout << std::endl << bottomBlobs[1]->dataMatrix << std::endl << std::endl;
+
+        std::cout << softmax << std::endl << std::endl;
+
+        std::cout << (softmax - epsMatrix) << std::endl << std::endl;
+
+        std::cout << (softmax - epsMatrix - bottomBlobs[1]->dataMatrix) << std::endl << std::endl;
+
+        std::cout << logLossMatrix << std::endl << std::endl;
+
+        exit(-1);
+    }*/
 }
 
 void SoftmaxWithLossLayer::backward()

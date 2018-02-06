@@ -38,6 +38,68 @@ Kava* Kava::addLayer(Layer *layer)
     return this;
 }
 
+void saveTop(std::vector<Layer *> layers, int layerIndex)
+{
+    Layer *layer = layers[layerIndex];
+
+    MatrixXf data = layer->topBlobs[0]->dataMatrix;
+
+    int rows = layer->topBlobs[0]->height;
+    int cols = layer->topBlobs[0]->width;
+    int chas = layer->topBlobs[0]->channels;
+
+    int area = (rows * cols);
+
+    data.resize(rows, cols * chas);
+
+    for(int j = 0; j < chas; j++)
+    {
+        MatrixXf block = data.block(0, j * cols, rows, cols);
+
+        auto *imageData = new unsigned char[area];
+
+        float min =  1e10;
+        float max = -1e10;
+
+        for(int i = 0; i < area; i++)
+        {
+            int index = ((rows * (i % rows)) + (i / rows));
+
+            float value = block.data()[index];
+
+            min = std::min(value, min);
+            max = std::max(value, max);
+        }
+
+        for(int i = 0; i < area; i++)
+        {
+            int index = ((rows * (i % rows)) + (i / rows));
+
+            float value = block.data()[index];
+
+            imageData[i] = (unsigned char)(((value - min) / (max - min)) * 255);
+        }
+
+        std::string filename = "data/" + layer->name + "-" + std::to_string(j) + ".png";
+
+
+        auto *resizedImageData = new unsigned char[area * 100];
+
+        int newRows = (rows * 10);
+        int newCols = (cols * 10);
+
+        stbir_resize_uint8_generic(imageData, cols, rows, rows, resizedImageData, newCols, newRows, newRows, 1,
+                                   0,
+                                   STBIR_TYPE_UINT8,
+                                   STBIR_EDGE_ZERO,
+                                   STBIR_FILTER_BOX,
+                                   STBIR_COLORSPACE_SRGB,
+                                   nullptr);
+
+        stbi_write_png(filename.c_str(), newCols, newRows, 1, resizedImageData, newRows);
+    }
+}
+
 void saveLayer(std::vector<Layer *> layers, int layerIndex)
 {
     ConvolutionalLayer *convLayer = (ConvolutionalLayer*)layers[layerIndex];
@@ -132,6 +194,8 @@ void saveLayer(std::vector<Layer *> layers, int layerIndex)
             }
         }
     }
+
+    saveTop(layers, layerIndex);
 }
 
 void Kava::setUp()
@@ -209,48 +273,61 @@ void Kava::train(std::function<void (const float)> lossCallback)
             if(j == (layers.size() - 1))
             {
                 float loss = layers[j]->topBlobs[0]->dataMatrix.data()[0];
-                
-                if((i % 1) == 0)
+
+                if(((i - 1) % 100) == 0)
                 {
                     if(lossCallback != nullptr)
                     {
                         lossCallback(loss);
                     }
-                    std::cout << std::to_string(i) << "/" << std::to_string(numIterations) << std::endl;
+                    std::cout << std::to_string(i - 1) << "/" << std::to_string(numIterations) << std::endl;
                     //std::cout << layers[layers.size() - 3]->topBlobs[0]->dataMatrix << std::endl;
                     std::cout << "\tloss: " << loss << std::endl << std::endl;
                 }
                 
                 if(isnan(loss) || isinf(loss))
                 {
-                    exit(-1);
+                    std::cout << loss << std::endl;
+                    std::cout << layers[j - 1]->topBlobs[0]->dataMatrix << std::endl;
+
+                    //exit(-1);
+
+                    i = numIterations + 1;
+
+                    break;
                 }
             }
         }
         
-        for(long j = 0; j < layers.size(); j++)
+        for(long j = 1; j < layers.size(); j++)
         {
             const clock_t thisStartTime = clock();
-            
-            if(layers[j]->weightBlobs.size() > 0)
+
+            if((i % (numIterations / 4)) == 0)
+            {
+                learningRate /= 2;
+            }
+
+            if(!layers[j]->weightBlobs.empty())
             {
                 layers[j]->weightBlobs[0]->updateWeights(learningRate);
             }
-            
+
             float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
             
             backwardTimes[j] += numSeconds;
         }
-        
-        /* if((i % (numIterations  / 4)) == 0)
+
+         if((i % (numIterations / 4)) == 0)
          {
-         learningRate /= 2;
-         }*/
+            learningRate /= 2;
+         }
     }
-    
+
     saveLayer(layers, 1);
-    saveLayer(layers, 3);
-    
+    saveLayer(layers, 4);
+    saveLayer(layers, 7);
+
     float numSeconds = float(clock() - startTime) / CLOCKS_PER_SEC;
     
     std::cout << "Time per image for training: " << (numSeconds / numIterations) << std::endl;
@@ -285,4 +362,9 @@ void Kava::train(std::function<void (const float)> lossCallback)
     {
         std::cout << "\t" << layers[i]->name << " - " << (backwardTimes[i] / numIterations) << std::endl;
     }
+}
+
+void Kava::setLearningRate(float learningRate)
+{
+    this->learningRate = learningRate;
 }

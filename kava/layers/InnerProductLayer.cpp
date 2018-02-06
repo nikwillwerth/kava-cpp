@@ -24,7 +24,10 @@ void InnerProductLayer::setUp()
     weightBlobs[0]->reshape(1, numOutputs, numInputs);
     topBlobs[0]->reshape(   1, 1,          numOutputs);
 
-    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], numOutputs, numInputs);
+    int fanIn  = (bottomBlobs[0]->count * numOutputs);
+    int fanOut = fanIn;
+
+    WeightFiller::getWeightFillerWithType(weightFillerType)->fill(weightBlobs[0], fanIn, fanOut);
 }
 
 void InnerProductLayer::forward()

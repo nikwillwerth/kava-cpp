@@ -3,12 +3,11 @@
 
 void XavierWeightFiller::fill(Blob *blob, int numInputs, int numOutputs)
 {
-    float var = (1.0f / ((numInputs + numOutputs) / 2.0f));
-    float std = sqrtf(var);
+    float std = sqrtf(3.0f / numInputs);
 
     for(int i = 0; i < blob->count; i++)
     {
-        blob->data[i] = RandomUtils::getRandomGaussian(0, std);
+        blob->data[i] = RandomUtils::getRandomUniform(0, std);
     }
 
     blob->putDataIntoMatrix();
