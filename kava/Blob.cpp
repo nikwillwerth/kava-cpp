@@ -39,7 +39,15 @@ void Blob::updateWeights(float learningRate)
 {
     diffMatrix.resize(dataMatrix.rows(), dataMatrix.cols());
 
+    //MatrixXf before = (dataMatrix * 1.0f);
+
     dataMatrix -= (diffMatrix * learningRate);
+
+    //MatrixXf after = (dataMatrix * 1.0f);
+
+    //MatrixXf result = after - before;
+
+    //std::cout << "\t\t" << diffMatrix.minCoeff() << " - " << diffMatrix.maxCoeff() << std::endl;
 
     //diffMatrix.fill(0);
 }

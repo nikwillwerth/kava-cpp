@@ -5,10 +5,10 @@
 #include "MNISTDataLayer.h"
 #include "../utils/FileUtils.h"
 
-const std::string TRAIN_IMAGES_NAME = "train-images-idx3-ubyte";
-const std::string TRAIN_LABELS_NAME = "train-labels-idx1-ubyte";
-const std::string TEST_IMAGES_NAME  = "t10k-images-idx3-ubyte";
-const std::string TEST_LABELS_NAME  = "t10k-labels-idx1-ubyte";
+const std::string TRAIN_IMAGES_NAME = "train-images.idx3-ubyte";
+const std::string TRAIN_LABELS_NAME = "train-labels.idx1-ubyte";
+const std::string TEST_IMAGES_NAME  = "t10k-images.idx3-ubyte";
+const std::string TEST_LABELS_NAME  = "t10k-labels.idx1-ubyte";
 
 int charsToInt(std::vector<unsigned char> buffer, int offset)
 {

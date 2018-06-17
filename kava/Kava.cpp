@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "Kava.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -303,14 +304,9 @@ void Kava::train(std::function<void (const float)> lossCallback)
         {
             const clock_t thisStartTime = clock();
 
-            if((i % (numIterations / 4)) == 0)
+            for(Blob *weightBlob : layers[j]->weightBlobs)
             {
-                learningRate /= 2;
-            }
-
-            if(!layers[j]->weightBlobs.empty())
-            {
-                layers[j]->weightBlobs[0]->updateWeights(learningRate);
+                weightBlob->updateWeights(learningRate);
             }
 
             float numSeconds = float(clock() - thisStartTime) / CLOCKS_PER_SEC;
